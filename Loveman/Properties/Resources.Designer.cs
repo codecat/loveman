@@ -153,6 +153,16 @@ namespace Loveman.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap merge16 {
+            get {
+                object obj = ResourceManager.GetObject("merge16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap moon16 {
             get {
                 object obj = ResourceManager.GetObject("moon16", resourceCulture);

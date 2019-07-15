@@ -61,13 +61,25 @@ namespace Loveman.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Windows\\System32\\notepad.exe")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Path_Editor {
             get {
                 return ((string)(this["Path_Editor"]));
             }
             set {
                 this["Path_Editor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Path_SublimeMerge {
+            get {
+                return ((string)(this["Path_SublimeMerge"]));
+            }
+            set {
+                this["Path_SublimeMerge"] = value;
             }
         }
     }

@@ -12,7 +12,10 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Path_Editor" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Windows\System32\notepad.exe</Value>
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Path_SublimeMerge" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

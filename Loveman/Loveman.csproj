@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Loveman</RootNamespace>
     <AssemblyName>Loveman</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -41,6 +41,15 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DiscUtils, Version=0.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Discutils.0.11.0.2\lib\net40\DiscUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="DiscUtils.Common, Version=0.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Discutils.0.11.0.2\lib\net40\DiscUtils.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.0.0.999, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.1.0.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
@@ -116,6 +125,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -131,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="love.ico" />
+    <None Include="Resources\merge16.png" />
     <None Include="Resources\link.png" />
     <None Include="Resources\sublime16.png" />
     <None Include="Resources\pencil.png" />

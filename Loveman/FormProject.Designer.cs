@@ -33,23 +33,26 @@
 			this.checkWatchForChanges = new System.Windows.Forms.CheckBox();
 			this.buttonBuildScripts = new Nimble.Controls.FlatControls.FlatButton();
 			this.flatGroupBox1 = new Nimble.Controls.FlatControls.FlatGroupBox();
+			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
+			this.textGameIcon = new Nimble.Controls.ExtendedTextBox();
 			this.textProjectBundleIdentifier = new Nimble.Controls.ExtendedTextBox();
 			this.textProjectAuthor = new Nimble.Controls.ExtendedTextBox();
 			this.textProjectName = new Nimble.Controls.ExtendedTextBox();
 			this.buttonCancel = new Nimble.Controls.FlatControls.FlatButton();
 			this.buttonSave = new Nimble.Controls.FlatControls.FlatButton();
+			this.buttonSublimeMerge = new Nimble.Controls.FlatControls.FlatButton();
 			this.buttonBuildRelease = new Nimble.Controls.FlatControls.FlatButton();
 			this.buttonSublime = new Nimble.Controls.FlatControls.FlatButton();
 			this.buttonFolder = new Nimble.Controls.FlatControls.FlatButton();
 			this.buttonStartConsole = new Nimble.Controls.FlatControls.FlatButton();
 			this.buttonStart = new Nimble.Controls.FlatControls.FlatButton();
-			this.textGameIcon = new Nimble.Controls.ExtendedTextBox();
-			this.label4 = new System.Windows.Forms.Label();
+			this.flowButtons = new System.Windows.Forms.FlowLayoutPanel();
 			this.groupMoonscript.SuspendLayout();
 			this.flatGroupBox1.SuspendLayout();
+			this.flowButtons.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// groupMoonscript
@@ -93,9 +96,8 @@
 			this.listChanges.ItemPaddingX = 4;
 			this.listChanges.ItemPaddingY = 2;
 			this.listChanges.Location = new System.Drawing.Point(6, 46);
+			this.listChanges.MultiSelect = false;
 			this.listChanges.Name = "listChanges";
-			this.listChanges.SelectedIndex = -1;
-			this.listChanges.SelectedItem = null;
 			this.listChanges.SelectionColor = System.Drawing.Color.LightBlue;
 			this.listChanges.SelectionTextColor = System.Drawing.Color.Black;
 			this.listChanges.Size = new System.Drawing.Size(314, 138);
@@ -165,6 +167,15 @@
 			this.flatGroupBox1.Title = "Project info";
 			this.flatGroupBox1.TopPadding = 10;
 			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(31, 102);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(61, 13);
+			this.label4.TabIndex = 2;
+			this.label4.Text = "Game icon:";
+			// 
 			// label3
 			// 
 			this.label3.AutoSize = true;
@@ -191,6 +202,19 @@
 			this.label1.Size = new System.Drawing.Size(38, 13);
 			this.label1.TabIndex = 2;
 			this.label1.Text = "Name:";
+			// 
+			// textGameIcon
+			// 
+			this.textGameIcon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.textGameIcon.BorderColor = System.Drawing.SystemColors.InactiveBorder;
+			this.textGameIcon.BorderColorActive = System.Drawing.SystemColors.ActiveBorder;
+			this.textGameIcon.HasBorders = true;
+			this.textGameIcon.Location = new System.Drawing.Point(98, 99);
+			this.textGameIcon.Name = "textGameIcon";
+			this.textGameIcon.Size = new System.Drawing.Size(222, 20);
+			this.textGameIcon.TabIndex = 2;
+			this.textGameIcon.TextChanged += new System.EventHandler(this.textProjectInfo_TextChanged);
 			// 
 			// textProjectBundleIdentifier
 			// 
@@ -277,6 +301,28 @@
 			this.buttonSave.Visible = false;
 			this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
 			// 
+			// buttonSublimeMerge
+			// 
+			this.buttonSublimeMerge.BackColorDown = System.Drawing.Color.White;
+			this.buttonSublimeMerge.BackColorOver = System.Drawing.Color.DarkGray;
+			this.buttonSublimeMerge.BackShadeColor = System.Drawing.SystemColors.Control;
+			this.buttonSublimeMerge.BackShadeRatio = 0D;
+			this.buttonSublimeMerge.BorderColor = System.Drawing.Color.Black;
+			this.buttonSublimeMerge.HasBorder = true;
+			this.buttonSublimeMerge.Image = global::Loveman.Properties.Resources.merge16;
+			this.buttonSublimeMerge.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonSublimeMerge.ImagePadding = 3;
+			this.buttonSublimeMerge.Location = new System.Drawing.Point(3, 119);
+			this.buttonSublimeMerge.Name = "buttonSublimeMerge";
+			this.buttonSublimeMerge.Size = new System.Drawing.Size(122, 23);
+			this.buttonSublimeMerge.TabIndex = 5;
+			this.buttonSublimeMerge.Text = "Sublime Merge";
+			this.buttonSublimeMerge.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonSublimeMerge.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
+			this.buttonSublimeMerge.TextPadding = 3;
+			this.buttonSublimeMerge.Visible = false;
+			this.buttonSublimeMerge.Click += new System.EventHandler(this.buttonSublimeMerge_Click);
+			// 
 			// buttonBuildRelease
 			// 
 			this.buttonBuildRelease.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -310,11 +356,11 @@
 			this.buttonSublime.Image = global::Loveman.Properties.Resources.sublime16;
 			this.buttonSublime.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.buttonSublime.ImagePadding = 3;
-			this.buttonSublime.Location = new System.Drawing.Point(12, 99);
+			this.buttonSublime.Location = new System.Drawing.Point(3, 90);
 			this.buttonSublime.Name = "buttonSublime";
 			this.buttonSublime.Size = new System.Drawing.Size(122, 23);
 			this.buttonSublime.TabIndex = 2;
-			this.buttonSublime.Text = "Open Sublime";
+			this.buttonSublime.Text = "Sublime Text";
 			this.buttonSublime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.buttonSublime.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
 			this.buttonSublime.TextPadding = 3;
@@ -332,7 +378,7 @@
 			this.buttonFolder.Image = global::Loveman.Properties.Resources.folder;
 			this.buttonFolder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.buttonFolder.ImagePadding = 3;
-			this.buttonFolder.Location = new System.Drawing.Point(12, 70);
+			this.buttonFolder.Location = new System.Drawing.Point(3, 61);
 			this.buttonFolder.Name = "buttonFolder";
 			this.buttonFolder.Size = new System.Drawing.Size(122, 23);
 			this.buttonFolder.TabIndex = 2;
@@ -353,7 +399,7 @@
 			this.buttonStartConsole.Image = global::Loveman.Properties.Resources.Console;
 			this.buttonStartConsole.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.buttonStartConsole.ImagePadding = 3;
-			this.buttonStartConsole.Location = new System.Drawing.Point(12, 41);
+			this.buttonStartConsole.Location = new System.Drawing.Point(3, 32);
 			this.buttonStartConsole.Name = "buttonStartConsole";
 			this.buttonStartConsole.Size = new System.Drawing.Size(122, 23);
 			this.buttonStartConsole.TabIndex = 1;
@@ -374,7 +420,7 @@
 			this.buttonStart.Image = global::Loveman.Properties.Resources.startwithoutdebugging_6556;
 			this.buttonStart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.buttonStart.ImagePadding = 3;
-			this.buttonStart.Location = new System.Drawing.Point(12, 12);
+			this.buttonStart.Location = new System.Drawing.Point(3, 3);
 			this.buttonStart.Name = "buttonStart";
 			this.buttonStart.Size = new System.Drawing.Size(122, 23);
 			this.buttonStart.TabIndex = 0;
@@ -384,40 +430,30 @@
 			this.buttonStart.TextPadding = 3;
 			this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
 			// 
-			// textGameIcon
+			// flowButtons
 			// 
-			this.textGameIcon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.textGameIcon.BorderColor = System.Drawing.SystemColors.InactiveBorder;
-			this.textGameIcon.BorderColorActive = System.Drawing.SystemColors.ActiveBorder;
-			this.textGameIcon.HasBorders = true;
-			this.textGameIcon.Location = new System.Drawing.Point(98, 99);
-			this.textGameIcon.Name = "textGameIcon";
-			this.textGameIcon.Size = new System.Drawing.Size(222, 20);
-			this.textGameIcon.TabIndex = 2;
-			this.textGameIcon.TextChanged += new System.EventHandler(this.textProjectInfo_TextChanged);
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(31, 102);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(61, 13);
-			this.label4.TabIndex = 2;
-			this.label4.Text = "Game icon:";
+			this.flowButtons.AutoSize = true;
+			this.flowButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.flowButtons.Controls.Add(this.buttonStart);
+			this.flowButtons.Controls.Add(this.buttonStartConsole);
+			this.flowButtons.Controls.Add(this.buttonFolder);
+			this.flowButtons.Controls.Add(this.buttonSublime);
+			this.flowButtons.Controls.Add(this.buttonSublimeMerge);
+			this.flowButtons.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+			this.flowButtons.Location = new System.Drawing.Point(9, 19);
+			this.flowButtons.Name = "flowButtons";
+			this.flowButtons.Size = new System.Drawing.Size(128, 145);
+			this.flowButtons.TabIndex = 6;
 			// 
 			// FormProject
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(478, 373);
+			this.Controls.Add(this.flowButtons);
 			this.Controls.Add(this.groupMoonscript);
 			this.Controls.Add(this.flatGroupBox1);
 			this.Controls.Add(this.buttonBuildRelease);
-			this.Controls.Add(this.buttonSublime);
-			this.Controls.Add(this.buttonFolder);
-			this.Controls.Add(this.buttonStartConsole);
-			this.Controls.Add(this.buttonStart);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormProject";
 			this.Text = "Project";
@@ -425,7 +461,9 @@
 			this.groupMoonscript.PerformLayout();
 			this.flatGroupBox1.ResumeLayout(false);
 			this.flatGroupBox1.PerformLayout();
+			this.flowButtons.ResumeLayout(false);
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -451,5 +489,7 @@
 		private Nimble.Controls.FlatControls.FlatButton buttonSublime;
 		private System.Windows.Forms.Label label4;
 		private Nimble.Controls.ExtendedTextBox textGameIcon;
+		private Nimble.Controls.FlatControls.FlatButton buttonSublimeMerge;
+		private System.Windows.Forms.FlowLayoutPanel flowButtons;
 	}
 }

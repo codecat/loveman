@@ -55,8 +55,6 @@
 			this.listProjects.ItemPaddingY = 2;
 			this.listProjects.Location = new System.Drawing.Point(12, 12);
 			this.listProjects.Name = "listProjects";
-			this.listProjects.SelectedIndex = -1;
-			this.listProjects.SelectedItem = null;
 			this.listProjects.SelectionColor = System.Drawing.Color.LightBlue;
 			this.listProjects.SelectionTextColor = System.Drawing.Color.Black;
 			this.listProjects.Size = new System.Drawing.Size(266, 246);

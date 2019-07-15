@@ -45,6 +45,26 @@ namespace Loveman
 				Settings.Default.Save();
 			}
 
+			// Check if we can find Sublime Text 3
+			if (Settings.Default.Path_Editor == "") {
+				var pathSublime = @"C:\Program Files\Sublime Text 3\sublime_text.exe";
+				if (File.Exists(pathSublime)) {
+					Settings.Default.Path_Editor = pathSublime;
+				} else {
+					Settings.Default.Path_Editor = @"C:\Windows\System32\notepad.exe";
+				}
+				Settings.Default.Save();
+			}
+
+			// Check if we can find Sublime Merge
+			if (Settings.Default.Path_SublimeMerge == "") {
+				var pathSublime = @"C:\Program Files\Sublime Merge";
+				if (Directory.Exists(pathSublime)) {
+					Settings.Default.Path_SublimeMerge = pathSublime;
+					Settings.Default.Save();
+				}
+			}
+
 			ReloadSettings();
 
 			Interface.InterfaceTheme(this);
@@ -55,6 +75,14 @@ namespace Loveman
 			// If the projects directory doesn't exist yet, we create it
 			if (!Directory.Exists(Settings.Default.Path_Projects)) {
 				Directory.CreateDirectory(Settings.Default.Path_Projects);
+			}
+
+			// Make sure the Sublime Merge path is the desired value
+			if (Settings.Default.Path_SublimeMerge != "") {
+				if (Settings.Default.Path_SublimeMerge.EndsWith(".exe")) {
+					Settings.Default.Path_SublimeMerge = Path.GetDirectoryName(Settings.Default.Path_SublimeMerge);
+					Settings.Default.Save();
+				}
 			}
 
 			// Reload list of projects
@@ -95,10 +123,10 @@ namespace Loveman
 
 		private void listProjects_DoubleClick(object sender, EventArgs e)
 		{
-			if (listProjects.SelectedItem == null) {
+			if (listProjects.SelectedItems.Length == 0) {
 				return;
 			}
-			new FormProject((ProjectInfo)listProjects.SelectedItem.Tag).Show(this);
+			new FormProject((ProjectInfo)listProjects.SelectedItems[0].Tag).Show(this);
 		}
 
 		private void buttonNewProject_Click(object sender, EventArgs e)

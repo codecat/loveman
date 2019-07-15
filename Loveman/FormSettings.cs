@@ -21,6 +21,7 @@ namespace Loveman
 			textMoonscriptPath.Text = Settings.Default.Path_Moonscript;
 			textProjectsPath.Text = Settings.Default.Path_Projects;
 			textEditorPath.Text = Settings.Default.Path_Editor;
+			textSublimeMergePath.Text = Settings.Default.Path_SublimeMerge;
 
 			Interface.InterfaceTheme(this);
 		}
@@ -31,6 +32,7 @@ namespace Loveman
 			Settings.Default.Path_Moonscript = textMoonscriptPath.Text;
 			Settings.Default.Path_Projects = textProjectsPath.Text;
 			Settings.Default.Path_Editor = textEditorPath.Text;
+			Settings.Default.Path_SublimeMerge = textSublimeMergePath.Text;
 			Settings.Default.Save();
 
 			DialogResult = DialogResult.OK;
@@ -85,6 +87,17 @@ namespace Loveman
 				return;
 			}
 			textEditorPath.Text = ofd.FileName;
+		}
+
+		private void buttonBrowseSublimeMerge_Click(object sender, EventArgs e)
+		{
+			var fbd = new FolderBrowserDialog();
+			fbd.Description = "Navigate to the folder where Sublime Merge is.";
+			fbd.SelectedPath = textSublimeMergePath.Text;
+			if (fbd.ShowDialog(this) != DialogResult.OK) {
+				return;
+			}
+			textSublimeMergePath.Text = fbd.SelectedPath;
 		}
 	}
 }

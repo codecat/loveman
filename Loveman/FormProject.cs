@@ -24,7 +24,8 @@ namespace Loveman
 		private List<MoonQueuedItem> m_watchQueue;
 		private Timer m_watchTimer;
 
-		private bool m_hasSublime;
+		private bool m_hasSublimeText;
+		private bool m_hasSublimeMerge;
 
 		public FormProject(ProjectInfo project)
 		{
@@ -55,10 +56,18 @@ namespace Loveman
 				checkWatchForChanges.AutoCheck = false;
 			}
 
-			m_hasSublime = (Path.GetFileName(Settings.Default.Path_Editor) == "sublime_text.exe");
-			buttonSublime.Visible = m_hasSublime;
+			m_hasSublimeText = (Path.GetFileName(Settings.Default.Path_Editor) == "sublime_text.exe");
+			buttonSublime.Visible = m_hasSublimeText;
+
+			m_hasSublimeMerge = (
+				Settings.Default.Path_SublimeMerge != "" &&
+				File.Exists(Path.Combine(Settings.Default.Path_SublimeMerge, "smerge.exe"))
+			);
+			buttonSublimeMerge.Visible = m_hasSublimeMerge;
 
 			Interface.InterfaceTheme(this);
+
+			flowButtons.BorderStyle = BorderStyle.None;
 		}
 
 		private bool CanUseMoonscript()
@@ -290,6 +299,11 @@ namespace Loveman
 
 		private void buttonBuildScripts_Click(object sender, EventArgs e)
 		{
+			if (!CanUseMoonscript()) {
+				MessageBox.Show(this, "Moonscript is not set up yet. Add the directory to where Moonscript is located to the settings dialog.", Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+
 			var files = Directory.GetFiles(m_project.GetPath(), "*.moon", SearchOption.AllDirectories);
 			foreach (var file in files) {
 				BuildMoonscriptFile("Build all", file.Substring(m_project.GetPath().Length + 1));
@@ -298,18 +312,18 @@ namespace Loveman
 
 		private void listChanges_DoubleClick(object sender, EventArgs e)
 		{
-			if (listChanges.SelectedItem == null || listChanges.SelectedItem.Tag == null) {
+			if (listChanges.SelectedItems.Length == 0 || listChanges.SelectedItems[0].Tag == null) {
 				return;
 			}
 
-			var info = (MoonLogLineInfo)listChanges.SelectedItem.Tag;
+			var info = (MoonLogLineInfo)listChanges.SelectedItems[0].Tag;
 			var filePath = Path.Combine(m_project.GetPath(), info.RelPath);
 			if (!File.Exists(filePath) || !File.Exists(Settings.Default.Path_Editor)) {
 				return;
 			}
 
 			var args = filePath;
-			if (m_hasSublime && info.Line > 0) {
+			if (m_hasSublimeText && info.Line > 0) {
 				args += ":" + info.Line;
 			}
 
@@ -319,6 +333,30 @@ namespace Loveman
 		private void buttonSublime_Click(object sender, EventArgs e)
 		{
 			Process.Start(Settings.Default.Path_Editor, m_project.GetPath());
+		}
+
+		private void buttonSublimeMerge_Click(object sender, EventArgs e)
+		{
+			if (!Directory.Exists(Path.Combine(m_project.GetPath(), ".git"))) {
+#if RELEASE
+				try {
+#endif
+					Process.Start(new ProcessStartInfo("git", "init") {
+						WorkingDirectory = m_project.GetPath(),
+						WindowStyle = ProcessWindowStyle.Hidden
+					}).WaitForExit();
+#if RELEASE
+				} catch {
+					MessageBox.Show(this, "This project is not in source control yet, and \"git\" is not available in %PATH%.", Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					return;
+				}
+#endif
+			}
+
+			var pathSmerge = Path.Combine(Settings.Default.Path_SublimeMerge, "smerge.exe");
+			Process.Start(new ProcessStartInfo(pathSmerge, m_project.GetPath()) {
+				WindowStyle = ProcessWindowStyle.Hidden
+			});
 		}
 
 		private void buttonBuildRelease_Click(object sender, EventArgs e)
