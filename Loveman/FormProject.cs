@@ -56,14 +56,19 @@ namespace Loveman
 				checkWatchForChanges.AutoCheck = false;
 			}
 
-			m_hasSublimeText = (Path.GetFileName(Settings.Default.Path_Editor) == "sublime_text.exe");
-			buttonSublime.Visible = m_hasSublimeText;
+			// This can fail if Path_Editor is an invalid value
+			try {
+				m_hasSublimeText = (Path.GetFileName(Settings.Default.Path_Editor) == "sublime_text.exe");
+				buttonSublime.Visible = m_hasSublimeText;
+			} catch { }
 
-			m_hasSublimeMerge = (
-				Settings.Default.Path_SublimeMerge != "" &&
-				File.Exists(Path.Combine(Settings.Default.Path_SublimeMerge, "smerge.exe"))
-			);
-			buttonSublimeMerge.Visible = m_hasSublimeMerge;
+			try {
+				m_hasSublimeMerge = (
+					Settings.Default.Path_SublimeMerge != "" &&
+					File.Exists(Path.Combine(Settings.Default.Path_SublimeMerge, "smerge.exe"))
+				);
+				buttonSublimeMerge.Visible = m_hasSublimeMerge;
+			} catch { }
 
 			Interface.InterfaceTheme(this);
 
@@ -79,7 +84,7 @@ namespace Loveman
 		{
 			var startInfo = new ProcessStartInfo();
 			startInfo.FileName = Path.Combine(Settings.Default.Path_Love, console ? "lovec.exe" : "love.exe");
-			startInfo.Arguments = m_project.GetPath();
+			startInfo.Arguments = "\"" + m_project.GetPath() + "\"";
 			startInfo.WorkingDirectory = m_project.GetPath();
 			Process.Start(startInfo);
 		}
