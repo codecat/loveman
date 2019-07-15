@@ -130,7 +130,20 @@ namespace Loveman
 			if (listProjects.SelectedItems.Length == 0) {
 				return;
 			}
-			new FormProject((ProjectInfo)listProjects.SelectedItems[0].Tag).Show(this);
+
+			var projectInfo = (listProjects.SelectedItems[0].Tag as ProjectInfo);
+			if (projectInfo == null) {
+				return;
+			}
+
+			var projectDir = projectInfo.GetPath();
+			if (!Directory.Exists(projectDir)) {
+				MessageBox.Show(this, "Couldn't find project directory at \"" + projectDir + "\"! The list will be reloaded.", Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				ReloadProjects();
+				return;
+			}
+
+			new FormProject(projectInfo).Show(this);
 		}
 
 		private void buttonNewProject_Click(object sender, EventArgs e)
