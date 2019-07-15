@@ -47,8 +47,6 @@ namespace Loveman
 			if (File.Exists(GetVersionPath("win32"))) { m_loveVersion.Download_Win32 = ".."; }
 			if (File.Exists(GetVersionPath("win64"))) { m_loveVersion.Download_Win64 = ".."; }
 			if (File.Exists(GetVersionPath("macos"))) { m_loveVersion.Download_MacOS = ".."; }
-			if (File.Exists(GetVersionPath("linux32"))) { m_loveVersion.Download_Linux32 = ".."; }
-			if (File.Exists(GetVersionPath("linux64"))) { m_loveVersion.Download_Linux64 = ".."; }
 
 			if (!m_loveVersion.HasAllDownloads()) {
 				labelStatus.Text = "Finding version downloads for LOVE " + m_loveVersion.Version + "...";
@@ -94,10 +92,6 @@ namespace Loveman
 							m_loveVersion.Download_Win32 = url;
 						} else if ((platform == "macos" || platform == "macosx-ub") && extension == ".zip") {
 							m_loveVersion.Download_MacOS = url;
-						} else if ((platform == "linux-x86_64" || platform == "x86_64") && filename.EndsWith(".tar.gz")) {
-							m_loveVersion.Download_Linux64 = url;
-						} else if ((platform == "linux-i686" || platform == "i686") && filename.EndsWith(".tar.gz")) {
-							m_loveVersion.Download_Linux32 = url;
 						}
 					}
 
@@ -274,6 +268,12 @@ namespace Loveman
 			Invoke(new Action(() => labelBuildStatus.Text = "Unzipping " + entry.FullName));
 
 			var extractPath = Path.Combine(folder, entry.FullName);
+			if (extractPath.EndsWith("/") || extractPath.EndsWith("\\")) {
+				if (!Directory.Exists(extractPath)) {
+					Directory.CreateDirectory(extractPath);
+				}
+				return;
+			}
 
 			using (var stream = entry.Open()) {
 				using (var writer = File.Create(extractPath)) {
@@ -439,105 +439,6 @@ namespace Loveman
 			}));
 		}
 
-		private void BeginLinuxBuild(string platform, string downloadUrl)
-		{
-			m_tasks.Add(new Task(() => {
-				BeginBuild(platform, downloadUrl);
-
-				// Get some paths
-				var versionPath = GetVersionPath(platform);
-
-				var projectPath = m_project.GetPath();
-				var releasePath = Path.Combine(projectPath, "Release/" + platform);
-
-				// Download the latest version of the AppImage runtime
-				string strPlatformExt = "x86_64";
-				if (platform == "linux32") {
-					strPlatformExt = "i686";
-				}
-
-				string strAppImageRuntimeUrl = "https://github.com/AppImage/AppImageKit/releases/download/continuous/runtime-" + strPlatformExt;
-
-				Invoke(new Action(() => labelBuildStatus.Text = "Downloading latest " + platform + " AppImage runtime"));
-
-				var wc = new WebClient();
-				wc.Proxy = null;
-				var runtimeData = wc.DownloadData(strAppImageRuntimeUrl);
-
-				Invoke(new Action(() => labelBuildStatus.Text = "Extracting " + platform + " package"));
-
-				// Extract all necessary files into the release folder
-				var tempPath = Path.Combine(releasePath, "Temp");
-				Directory.CreateDirectory(tempPath);
-
-				using (var fs = File.OpenRead(versionPath)) {
-					using (var gzfs = new GZipInputStream(fs)) {
-						using (var zip = TarArchive.CreateInputTarArchive(gzfs)) {
-							zip.ExtractContents(tempPath);
-						}
-					}
-				}
-
-				Invoke(new Action(() => labelBuildStatus.Text = "Building " + platform + " squashfs"));
-
-				var builder = new SquashFileSystemBuilder();
-				var executePermissions = UnixFilePermissions.OwnerExecute | UnixFilePermissions.GroupExecute | UnixFilePermissions.OthersExecute;
-
-				foreach (var path in Directory.GetFiles(tempPath, "*", SearchOption.AllDirectories)) {
-					var relativePath = path.Substring(tempPath.Length + 1).Replace('\\', '/');
-					if (relativePath.StartsWith("dest/")) {
-						relativePath = relativePath.Substring(5);
-					}
-
-					var permissions = builder.DefaultFilePermissions;
-					if (relativePath.StartsWith("usr/bin/") || relativePath == "love") {
-						permissions |= executePermissions;
-					}
-
-					builder.AddFile(relativePath, path, builder.DefaultUser, builder.DefaultGroup, permissions, DateTime.Now);
-				}
-
-				// Write Game.love
-				var loveFilePath = Path.Combine(projectPath, "Release/Game.love");
-				builder.AddFile("usr/share/Game.love", loveFilePath);
-
-				// Write AppRun file
-				var appRun = @"#!/bin/sh
-export GAME_LAUNCHER_LOCATION=""$(dirname ""$(which ""$0"")"")""
-${GAME_LAUNCHER_LOCATION}/love ${GAME_LAUNCHER_LOCATION}/usr/share/Game.love";
-
-				var pathSquash = Path.Combine(tempPath, "squashfs");
-
-				using (var appRunFile = new MemoryStream(Encoding.UTF8.GetBytes(appRun))) {
-					builder.AddFile("AppRun", appRunFile, builder.DefaultUser, builder.DefaultGroup, builder.DefaultFilePermissions | executePermissions, DateTime.Now);
-					builder.Build(pathSquash);
-				}
-
-				Invoke(new Action(() => labelBuildStatus.Text = "Writing " + platform + " AppImage"));
-
-				var appImageFilename = EnsureValidFilename(m_project.m_name + ".AppImage");
-				var appImagePath = Path.Combine(releasePath, appImageFilename);
-				using (var fs = File.Create(appImagePath)) {
-					// Write the runtime to file
-					fs.Write(runtimeData, 0, runtimeData.Length);
-
-					// Write the squashfs data to file
-					using (var squashfs = File.OpenRead(pathSquash)) {
-						var buffer = new byte[1024];
-						var bytesLeft = squashfs.Length;
-						while (bytesLeft > 0) {
-							int bytesRead = squashfs.Read(buffer, 0, buffer.Length);
-							fs.Write(buffer, 0, bytesRead);
-							bytesLeft -= bytesRead;
-						}
-					}
-				}
-
-				// Delete temporary folder
-				//...
-			}));
-		}
-
 		private void FoundVersions(bool searchDone)
 		{
 			if (searchDone) {
@@ -549,8 +450,6 @@ ${GAME_LAUNCHER_LOCATION}/love ${GAME_LAUNCHER_LOCATION}/usr/share/Game.love";
 			SetPlatformCheckbox(searchDone, "Windows (32 bit)", m_loveVersion.Download_Win32, GetVersionPath("win32"), checkWin32);
 			SetPlatformCheckbox(searchDone, "Windows (64 bit)", m_loveVersion.Download_Win64, GetVersionPath("win64"), checkWin64);
 			SetPlatformCheckbox(searchDone, "MacOS", m_loveVersion.Download_MacOS, GetVersionPath("macos"), checkMacOS);
-			SetPlatformCheckbox(searchDone, "Linux (32 bit)", m_loveVersion.Download_Linux32, GetVersionPath("linux32"), checkLinux32);
-			SetPlatformCheckbox(searchDone, "Linux (64 bit)", m_loveVersion.Download_Linux64, GetVersionPath("linux64"), checkLinux64);
 		}
 
 		private void buttonCancel_Click(object sender, EventArgs e)
@@ -571,8 +470,6 @@ ${GAME_LAUNCHER_LOCATION}/love ${GAME_LAUNCHER_LOCATION}/usr/share/Game.love";
 			if (checkWin32.Checked) { BeginWindowsBuild("win32", m_loveVersion.Download_Win32); }
 			if (checkWin64.Checked) { BeginWindowsBuild("win64", m_loveVersion.Download_Win64); }
 			if (checkMacOS.Checked) { BeginMacOSBuild("macos", m_loveVersion.Download_MacOS); }
-			//if (checkLinux32.Checked) { BeginWindowsBuild("linux32", m_loveVersion.Download_Linux32); }
-			if (checkLinux64.Checked) { BeginLinuxBuild("linux64", m_loveVersion.Download_Linux64); }
 
 			new Thread(new ThreadStart(() => {
 				while (m_tasks.Count > 0) {

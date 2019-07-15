@@ -30,20 +30,17 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRelease));
 			this.checkWin32 = new System.Windows.Forms.CheckBox();
 			this.checkMacOS = new System.Windows.Forms.CheckBox();
-			this.checkLinux32 = new System.Windows.Forms.CheckBox();
 			this.labelStatus = new System.Windows.Forms.Label();
 			this.checkWin64 = new System.Windows.Forms.CheckBox();
-			this.checkLinux64 = new System.Windows.Forms.CheckBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.buttonBuild = new Nimble.Controls.FlatControls.FlatButton();
-			this.buttonCancel = new Nimble.Controls.FlatControls.FlatButton();
 			this.labelBuildStatus = new System.Windows.Forms.Label();
 			this.progress = new System.Windows.Forms.ProgressBar();
+			this.buttonCancel = new Nimble.Controls.FlatControls.FlatButton();
+			this.buttonBuild = new Nimble.Controls.FlatControls.FlatButton();
 			this.SuspendLayout();
 			// 
 			// checkWin32
 			// 
-			this.checkWin32.AutoCheck = false;
 			this.checkWin32.AutoSize = true;
 			this.checkWin32.Location = new System.Drawing.Point(26, 32);
 			this.checkWin32.Name = "checkWin32";
@@ -54,7 +51,6 @@
 			// 
 			// checkMacOS
 			// 
-			this.checkMacOS.AutoCheck = false;
 			this.checkMacOS.AutoSize = true;
 			this.checkMacOS.Location = new System.Drawing.Point(26, 78);
 			this.checkMacOS.Name = "checkMacOS";
@@ -62,17 +58,6 @@
 			this.checkMacOS.TabIndex = 2;
 			this.checkMacOS.Text = "MacOS";
 			this.checkMacOS.UseVisualStyleBackColor = true;
-			// 
-			// checkLinux32
-			// 
-			this.checkLinux32.AutoCheck = false;
-			this.checkLinux32.AutoSize = true;
-			this.checkLinux32.Location = new System.Drawing.Point(26, 101);
-			this.checkLinux32.Name = "checkLinux32";
-			this.checkLinux32.Size = new System.Drawing.Size(86, 17);
-			this.checkLinux32.TabIndex = 3;
-			this.checkLinux32.Text = "Linux (32 bit)";
-			this.checkLinux32.UseVisualStyleBackColor = true;
 			// 
 			// labelStatus
 			// 
@@ -85,7 +70,6 @@
 			// 
 			// checkWin64
 			// 
-			this.checkWin64.AutoCheck = false;
 			this.checkWin64.AutoSize = true;
 			this.checkWin64.Location = new System.Drawing.Point(26, 55);
 			this.checkWin64.Name = "checkWin64";
@@ -94,50 +78,37 @@
 			this.checkWin64.Text = "Windows (64 bit)";
 			this.checkWin64.UseVisualStyleBackColor = true;
 			// 
-			// checkLinux64
-			// 
-			this.checkLinux64.AutoCheck = false;
-			this.checkLinux64.AutoSize = true;
-			this.checkLinux64.Location = new System.Drawing.Point(26, 124);
-			this.checkLinux64.Name = "checkLinux64";
-			this.checkLinux64.Size = new System.Drawing.Size(86, 17);
-			this.checkLinux64.TabIndex = 4;
-			this.checkLinux64.Text = "Linux (64 bit)";
-			this.checkLinux64.UseVisualStyleBackColor = true;
-			// 
 			// label1
 			// 
-			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.label1.Location = new System.Drawing.Point(12, 149);
+			this.label1.Location = new System.Drawing.Point(12, 116);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(398, 38);
 			this.label1.TabIndex = 5;
 			this.label1.Text = "Any platforms that are not downloaded yet will automatically be downloaded. If yo" +
     "u don\'t select any platform above, only a .love file will be compiled.";
 			// 
-			// buttonBuild
+			// labelBuildStatus
 			// 
-			this.buttonBuild.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.buttonBuild.BackColorDown = System.Drawing.Color.White;
-			this.buttonBuild.BackColorOver = System.Drawing.Color.DarkGray;
-			this.buttonBuild.BackShadeColor = System.Drawing.SystemColors.Control;
-			this.buttonBuild.BackShadeRatio = 0D;
-			this.buttonBuild.BorderColor = System.Drawing.Color.Black;
-			this.buttonBuild.HasBorder = true;
-			this.buttonBuild.Image = global::Loveman.Properties.Resources.accept;
-			this.buttonBuild.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonBuild.ImagePadding = 3;
-			this.buttonBuild.Location = new System.Drawing.Point(230, 245);
-			this.buttonBuild.Name = "buttonBuild";
-			this.buttonBuild.Size = new System.Drawing.Size(87, 23);
-			this.buttonBuild.TabIndex = 5;
-			this.buttonBuild.Text = "Build";
-			this.buttonBuild.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.buttonBuild.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
-			this.buttonBuild.TextPadding = 3;
-			this.buttonBuild.Click += new System.EventHandler(this.buttonBuild_Click);
+			this.labelBuildStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.labelBuildStatus.AutoSize = true;
+			this.labelBuildStatus.Location = new System.Drawing.Point(12, 154);
+			this.labelBuildStatus.Name = "labelBuildStatus";
+			this.labelBuildStatus.Size = new System.Drawing.Size(82, 13);
+			this.labelBuildStatus.TabIndex = 7;
+			this.labelBuildStatus.Text = "labelBuildStatus";
+			this.labelBuildStatus.Visible = false;
+			// 
+			// progress
+			// 
+			this.progress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.progress.Location = new System.Drawing.Point(12, 170);
+			this.progress.Name = "progress";
+			this.progress.Size = new System.Drawing.Size(398, 23);
+			this.progress.TabIndex = 8;
+			this.progress.Visible = false;
 			// 
 			// buttonCancel
 			// 
@@ -151,7 +122,7 @@
 			this.buttonCancel.Image = global::Loveman.Properties.Resources.cancel;
 			this.buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.buttonCancel.ImagePadding = 3;
-			this.buttonCancel.Location = new System.Drawing.Point(323, 245);
+			this.buttonCancel.Location = new System.Drawing.Point(323, 212);
 			this.buttonCancel.Name = "buttonCancel";
 			this.buttonCancel.Size = new System.Drawing.Size(87, 23);
 			this.buttonCancel.TabIndex = 6;
@@ -161,40 +132,39 @@
 			this.buttonCancel.TextPadding = 3;
 			this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
 			// 
-			// labelBuildStatus
+			// buttonBuild
 			// 
-			this.labelBuildStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.labelBuildStatus.AutoSize = true;
-			this.labelBuildStatus.Location = new System.Drawing.Point(12, 187);
-			this.labelBuildStatus.Name = "labelBuildStatus";
-			this.labelBuildStatus.Size = new System.Drawing.Size(82, 13);
-			this.labelBuildStatus.TabIndex = 7;
-			this.labelBuildStatus.Text = "labelBuildStatus";
-			this.labelBuildStatus.Visible = false;
-			// 
-			// progress
-			// 
-			this.progress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.progress.Location = new System.Drawing.Point(12, 203);
-			this.progress.Name = "progress";
-			this.progress.Size = new System.Drawing.Size(398, 23);
-			this.progress.TabIndex = 8;
-			this.progress.Visible = false;
+			this.buttonBuild.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonBuild.BackColorDown = System.Drawing.Color.White;
+			this.buttonBuild.BackColorOver = System.Drawing.Color.DarkGray;
+			this.buttonBuild.BackShadeColor = System.Drawing.SystemColors.Control;
+			this.buttonBuild.BackShadeRatio = 0D;
+			this.buttonBuild.BorderColor = System.Drawing.Color.Black;
+			this.buttonBuild.HasBorder = true;
+			this.buttonBuild.Image = global::Loveman.Properties.Resources.accept;
+			this.buttonBuild.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonBuild.ImagePadding = 3;
+			this.buttonBuild.Location = new System.Drawing.Point(230, 212);
+			this.buttonBuild.Name = "buttonBuild";
+			this.buttonBuild.Size = new System.Drawing.Size(87, 23);
+			this.buttonBuild.TabIndex = 5;
+			this.buttonBuild.Text = "Build";
+			this.buttonBuild.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonBuild.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
+			this.buttonBuild.TextPadding = 3;
+			this.buttonBuild.Click += new System.EventHandler(this.buttonBuild_Click);
 			// 
 			// FormRelease
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(422, 280);
+			this.ClientSize = new System.Drawing.Size(422, 247);
 			this.Controls.Add(this.progress);
 			this.Controls.Add(this.labelBuildStatus);
 			this.Controls.Add(this.buttonCancel);
 			this.Controls.Add(this.buttonBuild);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.labelStatus);
-			this.Controls.Add(this.checkLinux64);
-			this.Controls.Add(this.checkLinux32);
 			this.Controls.Add(this.checkMacOS);
 			this.Controls.Add(this.checkWin64);
 			this.Controls.Add(this.checkWin32);
@@ -213,10 +183,8 @@
 
 		private System.Windows.Forms.CheckBox checkWin32;
 		private System.Windows.Forms.CheckBox checkMacOS;
-		private System.Windows.Forms.CheckBox checkLinux32;
 		private System.Windows.Forms.Label labelStatus;
 		private System.Windows.Forms.CheckBox checkWin64;
-		private System.Windows.Forms.CheckBox checkLinux64;
 		private System.Windows.Forms.Label label1;
 		private Nimble.Controls.FlatControls.FlatButton buttonBuild;
 		private Nimble.Controls.FlatControls.FlatButton buttonCancel;

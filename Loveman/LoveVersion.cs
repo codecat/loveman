@@ -15,17 +15,13 @@ namespace Loveman
 		public string Download_Win32 = "";
 		public string Download_Win64 = "";
 		public string Download_MacOS = "";
-		public string Download_Linux64 = "";
-		public string Download_Linux32 = "";
 
 		public bool HasAllDownloads()
 		{
 			return
 				Download_Win32 != "" &&
 				Download_Win64 != "" &&
-				Download_MacOS != "" &&
-				Download_Linux64 != "" &&
-				Download_Linux32 != "";
+				Download_MacOS != "";
 		}
 
 		public static string GetInstalledVersion()
