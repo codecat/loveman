@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +19,9 @@ namespace Loveman
 		public FormMain()
 		{
 			InitializeComponent();
+
+			// Set title to version
+			Text = "Loveman " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
 			// If we don't have a LOVE path set, check if we might have it installed already
 			if (Settings.Default.Path_Love == "") {
@@ -41,7 +45,7 @@ namespace Loveman
 
 			// If we don't have a projects path set, we'll just use the documents folder
 			if (Settings.Default.Path_Projects == "") {
-				Settings.Default.Path_Projects = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\LOVE Projects";
+				Settings.Default.Path_Projects = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "LOVE Projects");
 				Settings.Default.Save();
 			}
 

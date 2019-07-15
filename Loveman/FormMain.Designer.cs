@@ -54,6 +54,7 @@
 			this.listProjects.ItemPaddingX = 4;
 			this.listProjects.ItemPaddingY = 2;
 			this.listProjects.Location = new System.Drawing.Point(12, 12);
+			this.listProjects.MultiSelect = false;
 			this.listProjects.Name = "listProjects";
 			this.listProjects.SelectionColor = System.Drawing.Color.LightBlue;
 			this.listProjects.SelectionTextColor = System.Drawing.Color.Black;
@@ -117,7 +118,7 @@
 			this.Controls.Add(this.buttonSettings);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormMain";
-			this.Text = "LOVE Manager";
+			this.Text = "Loveman";
 			this.ResumeLayout(false);
 
 		}
