@@ -1,6 +1,4 @@
-﻿using DiscUtils;
-using DiscUtils.SquashFs;
-using ICSharpCode.SharpZipLib.GZip;
+﻿using ICSharpCode.SharpZipLib.GZip;
 using ICSharpCode.SharpZipLib.Tar;
 using Loveman.Properties;
 using Nimble.Interface;
