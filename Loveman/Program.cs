@@ -12,6 +12,8 @@ namespace Loveman
 	{
 		public static FormMain MainForm;
 
+		public static string Version = "1.1.0.0";
+
 		[STAThread]
 		static void Main()
 		{

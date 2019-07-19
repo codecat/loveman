@@ -21,7 +21,7 @@ namespace Loveman
 			InitializeComponent();
 
 			// Set title to version
-			Text = "Loveman " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
+			Text = "Loveman " + Program.Version;
 
 			// If we don't have a LOVE path set, check if we might have it installed already
 			if (Settings.Default.Path_Love == "") {
