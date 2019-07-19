@@ -25,6 +25,7 @@ namespace Loveman
 		private Timer m_watchTimer;
 
 		private bool m_hasSublimeText;
+		private bool m_hasVSCode;
 		private bool m_hasSublimeMerge;
 
 		public FormProject(ProjectInfo project)
@@ -60,6 +61,9 @@ namespace Loveman
 			try {
 				m_hasSublimeText = (Path.GetFileName(Settings.Default.Path_Editor) == "sublime_text.exe");
 				buttonSublime.Visible = m_hasSublimeText;
+
+				m_hasVSCode = (Path.GetFileName(Settings.Default.Path_Editor) == "Code.exe");
+				buttonCode.Visible = m_hasVSCode;
 			} catch { }
 
 			try {
@@ -328,7 +332,7 @@ namespace Loveman
 			}
 
 			var args = filePath;
-			if (m_hasSublimeText && info.Line > 0) {
+			if ((m_hasSublimeText || m_hasVSCode) && info.Line > 0) {
 				args += ":" + info.Line;
 			}
 
@@ -337,7 +341,12 @@ namespace Loveman
 
 		private void buttonSublime_Click(object sender, EventArgs e)
 		{
-			Process.Start(Settings.Default.Path_Editor, m_project.GetPath());
+			Process.Start(Settings.Default.Path_Editor, "\"" + m_project.GetPath() + "\"");
+		}
+
+		private void buttonCode_Click(object sender, EventArgs e)
+		{
+			Process.Start(Settings.Default.Path_Editor, "\"" + m_project.GetPath() + "\"");
 		}
 
 		private void buttonSublimeMerge_Click(object sender, EventArgs e)
@@ -359,7 +368,7 @@ namespace Loveman
 			}
 
 			var pathSmerge = Path.Combine(Settings.Default.Path_SublimeMerge, "smerge.exe");
-			Process.Start(new ProcessStartInfo(pathSmerge, m_project.GetPath()) {
+			Process.Start(new ProcessStartInfo(pathSmerge, "\"" + m_project.GetPath() + "\"") {
 				WindowStyle = ProcessWindowStyle.Hidden
 			});
 		}

@@ -31,7 +31,6 @@
 			this.groupMoonscript = new Nimble.Controls.FlatControls.FlatGroupBox();
 			this.listChanges = new Nimble.Controls.FlatControls.FlatList();
 			this.checkWatchForChanges = new System.Windows.Forms.CheckBox();
-			this.buttonBuildScripts = new Nimble.Controls.FlatControls.FlatButton();
 			this.flatGroupBox1 = new Nimble.Controls.FlatControls.FlatGroupBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
@@ -41,15 +40,17 @@
 			this.textProjectBundleIdentifier = new Nimble.Controls.ExtendedTextBox();
 			this.textProjectAuthor = new Nimble.Controls.ExtendedTextBox();
 			this.textProjectName = new Nimble.Controls.ExtendedTextBox();
+			this.flowButtons = new System.Windows.Forms.FlowLayoutPanel();
+			this.buttonStart = new Nimble.Controls.FlatControls.FlatButton();
+			this.buttonStartConsole = new Nimble.Controls.FlatControls.FlatButton();
+			this.buttonFolder = new Nimble.Controls.FlatControls.FlatButton();
+			this.buttonSublime = new Nimble.Controls.FlatControls.FlatButton();
+			this.buttonCode = new Nimble.Controls.FlatControls.FlatButton();
+			this.buttonSublimeMerge = new Nimble.Controls.FlatControls.FlatButton();
+			this.buttonBuildScripts = new Nimble.Controls.FlatControls.FlatButton();
 			this.buttonCancel = new Nimble.Controls.FlatControls.FlatButton();
 			this.buttonSave = new Nimble.Controls.FlatControls.FlatButton();
-			this.buttonSublimeMerge = new Nimble.Controls.FlatControls.FlatButton();
 			this.buttonBuildRelease = new Nimble.Controls.FlatControls.FlatButton();
-			this.buttonSublime = new Nimble.Controls.FlatControls.FlatButton();
-			this.buttonFolder = new Nimble.Controls.FlatControls.FlatButton();
-			this.buttonStartConsole = new Nimble.Controls.FlatControls.FlatButton();
-			this.buttonStart = new Nimble.Controls.FlatControls.FlatButton();
-			this.flowButtons = new System.Windows.Forms.FlowLayoutPanel();
 			this.groupMoonscript.SuspendLayout();
 			this.flatGroupBox1.SuspendLayout();
 			this.flowButtons.SuspendLayout();
@@ -118,28 +119,6 @@
 			this.checkWatchForChanges.Text = "Watch for changes";
 			this.checkWatchForChanges.UseVisualStyleBackColor = true;
 			this.checkWatchForChanges.CheckedChanged += new System.EventHandler(this.checkWatchForChanges_CheckedChanged);
-			// 
-			// buttonBuildScripts
-			// 
-			this.buttonBuildScripts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.buttonBuildScripts.BackColorDown = System.Drawing.Color.White;
-			this.buttonBuildScripts.BackColorOver = System.Drawing.Color.DarkGray;
-			this.buttonBuildScripts.BackShadeColor = System.Drawing.SystemColors.Control;
-			this.buttonBuildScripts.BackShadeRatio = 0D;
-			this.buttonBuildScripts.BorderColor = System.Drawing.Color.Black;
-			this.buttonBuildScripts.HasBorder = true;
-			this.buttonBuildScripts.Image = global::Loveman.Properties.Resources.plugin;
-			this.buttonBuildScripts.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.buttonBuildScripts.ImagePadding = 3;
-			this.buttonBuildScripts.Location = new System.Drawing.Point(220, 17);
-			this.buttonBuildScripts.Name = "buttonBuildScripts";
-			this.buttonBuildScripts.Size = new System.Drawing.Size(100, 23);
-			this.buttonBuildScripts.TabIndex = 3;
-			this.buttonBuildScripts.Text = "Build scripts";
-			this.buttonBuildScripts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonBuildScripts.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
-			this.buttonBuildScripts.TextPadding = 3;
-			this.buttonBuildScripts.Click += new System.EventHandler(this.buttonBuildScripts_Click);
 			// 
 			// flatGroupBox1
 			// 
@@ -255,6 +234,173 @@
 			this.textProjectName.TabIndex = 0;
 			this.textProjectName.TextChanged += new System.EventHandler(this.textProjectInfo_TextChanged);
 			// 
+			// flowButtons
+			// 
+			this.flowButtons.AutoSize = true;
+			this.flowButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.flowButtons.Controls.Add(this.buttonStart);
+			this.flowButtons.Controls.Add(this.buttonStartConsole);
+			this.flowButtons.Controls.Add(this.buttonFolder);
+			this.flowButtons.Controls.Add(this.buttonSublime);
+			this.flowButtons.Controls.Add(this.buttonCode);
+			this.flowButtons.Controls.Add(this.buttonSublimeMerge);
+			this.flowButtons.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+			this.flowButtons.Location = new System.Drawing.Point(9, 19);
+			this.flowButtons.Name = "flowButtons";
+			this.flowButtons.Size = new System.Drawing.Size(128, 174);
+			this.flowButtons.TabIndex = 6;
+			// 
+			// buttonStart
+			// 
+			this.buttonStart.BackColorDown = System.Drawing.Color.White;
+			this.buttonStart.BackColorOver = System.Drawing.Color.DarkGray;
+			this.buttonStart.BackShadeColor = System.Drawing.SystemColors.Control;
+			this.buttonStart.BackShadeRatio = 0D;
+			this.buttonStart.BorderColor = System.Drawing.Color.Black;
+			this.buttonStart.HasBorder = true;
+			this.buttonStart.Image = global::Loveman.Properties.Resources.startwithoutdebugging_6556;
+			this.buttonStart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonStart.ImagePadding = 3;
+			this.buttonStart.Location = new System.Drawing.Point(3, 3);
+			this.buttonStart.Name = "buttonStart";
+			this.buttonStart.Size = new System.Drawing.Size(122, 23);
+			this.buttonStart.TabIndex = 0;
+			this.buttonStart.Text = "Start game";
+			this.buttonStart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonStart.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
+			this.buttonStart.TextPadding = 3;
+			this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
+			// 
+			// buttonStartConsole
+			// 
+			this.buttonStartConsole.BackColorDown = System.Drawing.Color.White;
+			this.buttonStartConsole.BackColorOver = System.Drawing.Color.DarkGray;
+			this.buttonStartConsole.BackShadeColor = System.Drawing.SystemColors.Control;
+			this.buttonStartConsole.BackShadeRatio = 0D;
+			this.buttonStartConsole.BorderColor = System.Drawing.Color.Black;
+			this.buttonStartConsole.HasBorder = true;
+			this.buttonStartConsole.Image = global::Loveman.Properties.Resources.Console;
+			this.buttonStartConsole.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonStartConsole.ImagePadding = 3;
+			this.buttonStartConsole.Location = new System.Drawing.Point(3, 32);
+			this.buttonStartConsole.Name = "buttonStartConsole";
+			this.buttonStartConsole.Size = new System.Drawing.Size(122, 23);
+			this.buttonStartConsole.TabIndex = 1;
+			this.buttonStartConsole.Text = "Start with console";
+			this.buttonStartConsole.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonStartConsole.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
+			this.buttonStartConsole.TextPadding = 3;
+			this.buttonStartConsole.Click += new System.EventHandler(this.buttonStartConsole_Click);
+			// 
+			// buttonFolder
+			// 
+			this.buttonFolder.BackColorDown = System.Drawing.Color.White;
+			this.buttonFolder.BackColorOver = System.Drawing.Color.DarkGray;
+			this.buttonFolder.BackShadeColor = System.Drawing.SystemColors.Control;
+			this.buttonFolder.BackShadeRatio = 0D;
+			this.buttonFolder.BorderColor = System.Drawing.Color.Black;
+			this.buttonFolder.HasBorder = true;
+			this.buttonFolder.Image = global::Loveman.Properties.Resources.folder;
+			this.buttonFolder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonFolder.ImagePadding = 3;
+			this.buttonFolder.Location = new System.Drawing.Point(3, 61);
+			this.buttonFolder.Name = "buttonFolder";
+			this.buttonFolder.Size = new System.Drawing.Size(122, 23);
+			this.buttonFolder.TabIndex = 2;
+			this.buttonFolder.Text = "Open folder";
+			this.buttonFolder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonFolder.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
+			this.buttonFolder.TextPadding = 3;
+			this.buttonFolder.Click += new System.EventHandler(this.buttonFolder_Click);
+			// 
+			// buttonSublime
+			// 
+			this.buttonSublime.BackColorDown = System.Drawing.Color.White;
+			this.buttonSublime.BackColorOver = System.Drawing.Color.DarkGray;
+			this.buttonSublime.BackShadeColor = System.Drawing.SystemColors.Control;
+			this.buttonSublime.BackShadeRatio = 0D;
+			this.buttonSublime.BorderColor = System.Drawing.Color.Black;
+			this.buttonSublime.HasBorder = true;
+			this.buttonSublime.Image = global::Loveman.Properties.Resources.sublime16;
+			this.buttonSublime.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonSublime.ImagePadding = 3;
+			this.buttonSublime.Location = new System.Drawing.Point(3, 90);
+			this.buttonSublime.Name = "buttonSublime";
+			this.buttonSublime.Size = new System.Drawing.Size(122, 23);
+			this.buttonSublime.TabIndex = 2;
+			this.buttonSublime.Text = "Sublime Text";
+			this.buttonSublime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonSublime.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
+			this.buttonSublime.TextPadding = 3;
+			this.buttonSublime.Visible = false;
+			this.buttonSublime.Click += new System.EventHandler(this.buttonSublime_Click);
+			// 
+			// buttonCode
+			// 
+			this.buttonCode.BackColorDown = System.Drawing.Color.White;
+			this.buttonCode.BackColorOver = System.Drawing.Color.DarkGray;
+			this.buttonCode.BackShadeColor = System.Drawing.SystemColors.Control;
+			this.buttonCode.BackShadeRatio = 0D;
+			this.buttonCode.BorderColor = System.Drawing.Color.Black;
+			this.buttonCode.HasBorder = true;
+			this.buttonCode.Image = global::Loveman.Properties.Resources.code16;
+			this.buttonCode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonCode.ImagePadding = 3;
+			this.buttonCode.Location = new System.Drawing.Point(3, 119);
+			this.buttonCode.Name = "buttonCode";
+			this.buttonCode.Size = new System.Drawing.Size(122, 23);
+			this.buttonCode.TabIndex = 6;
+			this.buttonCode.Text = "VS Code";
+			this.buttonCode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonCode.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
+			this.buttonCode.TextPadding = 3;
+			this.buttonCode.Visible = false;
+			this.buttonCode.Click += new System.EventHandler(this.buttonCode_Click);
+			// 
+			// buttonSublimeMerge
+			// 
+			this.buttonSublimeMerge.BackColorDown = System.Drawing.Color.White;
+			this.buttonSublimeMerge.BackColorOver = System.Drawing.Color.DarkGray;
+			this.buttonSublimeMerge.BackShadeColor = System.Drawing.SystemColors.Control;
+			this.buttonSublimeMerge.BackShadeRatio = 0D;
+			this.buttonSublimeMerge.BorderColor = System.Drawing.Color.Black;
+			this.buttonSublimeMerge.HasBorder = true;
+			this.buttonSublimeMerge.Image = global::Loveman.Properties.Resources.merge16;
+			this.buttonSublimeMerge.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonSublimeMerge.ImagePadding = 3;
+			this.buttonSublimeMerge.Location = new System.Drawing.Point(3, 148);
+			this.buttonSublimeMerge.Name = "buttonSublimeMerge";
+			this.buttonSublimeMerge.Size = new System.Drawing.Size(122, 23);
+			this.buttonSublimeMerge.TabIndex = 5;
+			this.buttonSublimeMerge.Text = "Sublime Merge";
+			this.buttonSublimeMerge.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonSublimeMerge.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
+			this.buttonSublimeMerge.TextPadding = 3;
+			this.buttonSublimeMerge.Visible = false;
+			this.buttonSublimeMerge.Click += new System.EventHandler(this.buttonSublimeMerge_Click);
+			// 
+			// buttonBuildScripts
+			// 
+			this.buttonBuildScripts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonBuildScripts.BackColorDown = System.Drawing.Color.White;
+			this.buttonBuildScripts.BackColorOver = System.Drawing.Color.DarkGray;
+			this.buttonBuildScripts.BackShadeColor = System.Drawing.SystemColors.Control;
+			this.buttonBuildScripts.BackShadeRatio = 0D;
+			this.buttonBuildScripts.BorderColor = System.Drawing.Color.Black;
+			this.buttonBuildScripts.HasBorder = true;
+			this.buttonBuildScripts.Image = global::Loveman.Properties.Resources.plugin;
+			this.buttonBuildScripts.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonBuildScripts.ImagePadding = 3;
+			this.buttonBuildScripts.Location = new System.Drawing.Point(220, 17);
+			this.buttonBuildScripts.Name = "buttonBuildScripts";
+			this.buttonBuildScripts.Size = new System.Drawing.Size(100, 23);
+			this.buttonBuildScripts.TabIndex = 3;
+			this.buttonBuildScripts.Text = "Build scripts";
+			this.buttonBuildScripts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonBuildScripts.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
+			this.buttonBuildScripts.TextPadding = 3;
+			this.buttonBuildScripts.Click += new System.EventHandler(this.buttonBuildScripts_Click);
+			// 
 			// buttonCancel
 			// 
 			this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -301,28 +447,6 @@
 			this.buttonSave.Visible = false;
 			this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
 			// 
-			// buttonSublimeMerge
-			// 
-			this.buttonSublimeMerge.BackColorDown = System.Drawing.Color.White;
-			this.buttonSublimeMerge.BackColorOver = System.Drawing.Color.DarkGray;
-			this.buttonSublimeMerge.BackShadeColor = System.Drawing.SystemColors.Control;
-			this.buttonSublimeMerge.BackShadeRatio = 0D;
-			this.buttonSublimeMerge.BorderColor = System.Drawing.Color.Black;
-			this.buttonSublimeMerge.HasBorder = true;
-			this.buttonSublimeMerge.Image = global::Loveman.Properties.Resources.merge16;
-			this.buttonSublimeMerge.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonSublimeMerge.ImagePadding = 3;
-			this.buttonSublimeMerge.Location = new System.Drawing.Point(3, 119);
-			this.buttonSublimeMerge.Name = "buttonSublimeMerge";
-			this.buttonSublimeMerge.Size = new System.Drawing.Size(122, 23);
-			this.buttonSublimeMerge.TabIndex = 5;
-			this.buttonSublimeMerge.Text = "Sublime Merge";
-			this.buttonSublimeMerge.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.buttonSublimeMerge.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
-			this.buttonSublimeMerge.TextPadding = 3;
-			this.buttonSublimeMerge.Visible = false;
-			this.buttonSublimeMerge.Click += new System.EventHandler(this.buttonSublimeMerge_Click);
-			// 
 			// buttonBuildRelease
 			// 
 			this.buttonBuildRelease.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -344,106 +468,6 @@
 			this.buttonBuildRelease.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
 			this.buttonBuildRelease.TextPadding = 3;
 			this.buttonBuildRelease.Click += new System.EventHandler(this.buttonBuildRelease_Click);
-			// 
-			// buttonSublime
-			// 
-			this.buttonSublime.BackColorDown = System.Drawing.Color.White;
-			this.buttonSublime.BackColorOver = System.Drawing.Color.DarkGray;
-			this.buttonSublime.BackShadeColor = System.Drawing.SystemColors.Control;
-			this.buttonSublime.BackShadeRatio = 0D;
-			this.buttonSublime.BorderColor = System.Drawing.Color.Black;
-			this.buttonSublime.HasBorder = true;
-			this.buttonSublime.Image = global::Loveman.Properties.Resources.sublime16;
-			this.buttonSublime.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonSublime.ImagePadding = 3;
-			this.buttonSublime.Location = new System.Drawing.Point(3, 90);
-			this.buttonSublime.Name = "buttonSublime";
-			this.buttonSublime.Size = new System.Drawing.Size(122, 23);
-			this.buttonSublime.TabIndex = 2;
-			this.buttonSublime.Text = "Sublime Text";
-			this.buttonSublime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.buttonSublime.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
-			this.buttonSublime.TextPadding = 3;
-			this.buttonSublime.Visible = false;
-			this.buttonSublime.Click += new System.EventHandler(this.buttonSublime_Click);
-			// 
-			// buttonFolder
-			// 
-			this.buttonFolder.BackColorDown = System.Drawing.Color.White;
-			this.buttonFolder.BackColorOver = System.Drawing.Color.DarkGray;
-			this.buttonFolder.BackShadeColor = System.Drawing.SystemColors.Control;
-			this.buttonFolder.BackShadeRatio = 0D;
-			this.buttonFolder.BorderColor = System.Drawing.Color.Black;
-			this.buttonFolder.HasBorder = true;
-			this.buttonFolder.Image = global::Loveman.Properties.Resources.folder;
-			this.buttonFolder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonFolder.ImagePadding = 3;
-			this.buttonFolder.Location = new System.Drawing.Point(3, 61);
-			this.buttonFolder.Name = "buttonFolder";
-			this.buttonFolder.Size = new System.Drawing.Size(122, 23);
-			this.buttonFolder.TabIndex = 2;
-			this.buttonFolder.Text = "Open folder";
-			this.buttonFolder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.buttonFolder.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
-			this.buttonFolder.TextPadding = 3;
-			this.buttonFolder.Click += new System.EventHandler(this.buttonFolder_Click);
-			// 
-			// buttonStartConsole
-			// 
-			this.buttonStartConsole.BackColorDown = System.Drawing.Color.White;
-			this.buttonStartConsole.BackColorOver = System.Drawing.Color.DarkGray;
-			this.buttonStartConsole.BackShadeColor = System.Drawing.SystemColors.Control;
-			this.buttonStartConsole.BackShadeRatio = 0D;
-			this.buttonStartConsole.BorderColor = System.Drawing.Color.Black;
-			this.buttonStartConsole.HasBorder = true;
-			this.buttonStartConsole.Image = global::Loveman.Properties.Resources.Console;
-			this.buttonStartConsole.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonStartConsole.ImagePadding = 3;
-			this.buttonStartConsole.Location = new System.Drawing.Point(3, 32);
-			this.buttonStartConsole.Name = "buttonStartConsole";
-			this.buttonStartConsole.Size = new System.Drawing.Size(122, 23);
-			this.buttonStartConsole.TabIndex = 1;
-			this.buttonStartConsole.Text = "Start with console";
-			this.buttonStartConsole.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.buttonStartConsole.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
-			this.buttonStartConsole.TextPadding = 3;
-			this.buttonStartConsole.Click += new System.EventHandler(this.buttonStartConsole_Click);
-			// 
-			// buttonStart
-			// 
-			this.buttonStart.BackColorDown = System.Drawing.Color.White;
-			this.buttonStart.BackColorOver = System.Drawing.Color.DarkGray;
-			this.buttonStart.BackShadeColor = System.Drawing.SystemColors.Control;
-			this.buttonStart.BackShadeRatio = 0D;
-			this.buttonStart.BorderColor = System.Drawing.Color.Black;
-			this.buttonStart.HasBorder = true;
-			this.buttonStart.Image = global::Loveman.Properties.Resources.startwithoutdebugging_6556;
-			this.buttonStart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonStart.ImagePadding = 3;
-			this.buttonStart.Location = new System.Drawing.Point(3, 3);
-			this.buttonStart.Name = "buttonStart";
-			this.buttonStart.Size = new System.Drawing.Size(122, 23);
-			this.buttonStart.TabIndex = 0;
-			this.buttonStart.Text = "Start game";
-			this.buttonStart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.buttonStart.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
-			this.buttonStart.TextPadding = 3;
-			this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
-			// 
-			// flowButtons
-			// 
-			this.flowButtons.AutoSize = true;
-			this.flowButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.flowButtons.Controls.Add(this.buttonStart);
-			this.flowButtons.Controls.Add(this.buttonStartConsole);
-			this.flowButtons.Controls.Add(this.buttonFolder);
-			this.flowButtons.Controls.Add(this.buttonSublime);
-			this.flowButtons.Controls.Add(this.buttonSublimeMerge);
-			this.flowButtons.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-			this.flowButtons.Location = new System.Drawing.Point(9, 19);
-			this.flowButtons.Name = "flowButtons";
-			this.flowButtons.Size = new System.Drawing.Size(128, 145);
-			this.flowButtons.TabIndex = 6;
 			// 
 			// FormProject
 			// 
@@ -491,5 +515,6 @@
 		private Nimble.Controls.ExtendedTextBox textGameIcon;
 		private Nimble.Controls.FlatControls.FlatButton buttonSublimeMerge;
 		private System.Windows.Forms.FlowLayoutPanel flowButtons;
+		private Nimble.Controls.FlatControls.FlatButton buttonCode;
 	}
 }

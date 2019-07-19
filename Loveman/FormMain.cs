@@ -49,13 +49,20 @@ namespace Loveman
 				Settings.Default.Save();
 			}
 
-			// Check if we can find Sublime Text 3
 			if (Settings.Default.Path_Editor == "") {
-				var pathSublime = @"C:\Program Files\Sublime Text 3\sublime_text.exe";
-				if (File.Exists(pathSublime)) {
-					Settings.Default.Path_Editor = pathSublime;
+				// Check for VS Code
+				var pathVSCode = @"C:\Program Files\Microsoft VS Code\Code.exe";
+				if (File.Exists(pathVSCode)) {
+					Settings.Default.Path_Editor = pathVSCode;
 				} else {
-					Settings.Default.Path_Editor = @"C:\Windows\System32\notepad.exe";
+					// Check for Sublime Text 3
+					var pathSublime = @"C:\Program Files\Sublime Text 3\sublime_text.exe";
+					if (File.Exists(pathSublime)) {
+						Settings.Default.Path_Editor = pathSublime;
+					} else {
+						// Just default to Notepad
+						Settings.Default.Path_Editor = @"C:\Windows\System32\notepad.exe";
+					}
 				}
 				Settings.Default.Save();
 			}

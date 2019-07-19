@@ -135,6 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="love.ico" />
+    <None Include="Resources\code16.png" />
     <None Include="Resources\merge16.png" />
     <None Include="Resources\link.png" />
     <None Include="Resources\sublime16.png" />
