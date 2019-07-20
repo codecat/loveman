@@ -26,6 +26,8 @@ namespace Loveman
 
 		private bool m_hasSublimeText;
 		private bool m_hasVSCode;
+		private bool m_hasAtom;
+
 		private bool m_hasSublimeMerge;
 
 		public FormProject(ProjectInfo project)
@@ -66,6 +68,9 @@ namespace Loveman
 
 				m_hasVSCode = (editorExe == "Code.exe" || editorExe == "VSCodium.exe");
 				buttonCode.Visible = m_hasVSCode;
+
+				m_hasAtom = (editorExe == "atom.exe");
+				buttonAtom.Visible = m_hasAtom;
 			} catch { }
 
 			try {
@@ -334,7 +339,7 @@ namespace Loveman
 			}
 
 			var args = filePath;
-			if ((m_hasSublimeText || m_hasVSCode) && info.Line > 0) {
+			if ((m_hasSublimeText || m_hasVSCode || m_hasAtom) && info.Line > 0) {
 				args += ":" + info.Line;
 			}
 
@@ -347,6 +352,11 @@ namespace Loveman
 		}
 
 		private void buttonCode_Click(object sender, EventArgs e)
+		{
+			Process.Start(Settings.Default.Path_Editor, "\"" + m_project.GetPath() + "\"");
+		}
+
+		private void buttonAtom_Click(object sender, EventArgs e)
 		{
 			Process.Start(Settings.Default.Path_Editor, "\"" + m_project.GetPath() + "\"");
 		}

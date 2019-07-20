@@ -60,8 +60,14 @@ namespace Loveman
 					if (File.Exists(pathSublime)) {
 						Settings.Default.Path_Editor = pathSublime;
 					} else {
-						// Just default to Notepad
-						Settings.Default.Path_Editor = @"C:\Windows\System32\notepad.exe";
+						// Check for Atom
+						var pathAtom = @"C:\Users\Nimble\AppData\Local\atom\atom.exe";
+						if (File.Exists(pathAtom)) {
+							Settings.Default.Path_Editor = pathAtom;
+						} else {
+							// Just default to Notepad
+							Settings.Default.Path_Editor = @"C:\Windows\System32\notepad.exe";
+						}
 					}
 				}
 				Settings.Default.Save();

@@ -46,6 +46,7 @@
 			this.buttonFolder = new Nimble.Controls.FlatControls.FlatButton();
 			this.buttonSublime = new Nimble.Controls.FlatControls.FlatButton();
 			this.buttonCode = new Nimble.Controls.FlatControls.FlatButton();
+			this.buttonAtom = new Nimble.Controls.FlatControls.FlatButton();
 			this.buttonSublimeMerge = new Nimble.Controls.FlatControls.FlatButton();
 			this.buttonBuildScripts = new Nimble.Controls.FlatControls.FlatButton();
 			this.buttonCancel = new Nimble.Controls.FlatControls.FlatButton();
@@ -243,11 +244,12 @@
 			this.flowButtons.Controls.Add(this.buttonFolder);
 			this.flowButtons.Controls.Add(this.buttonSublime);
 			this.flowButtons.Controls.Add(this.buttonCode);
+			this.flowButtons.Controls.Add(this.buttonAtom);
 			this.flowButtons.Controls.Add(this.buttonSublimeMerge);
 			this.flowButtons.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
 			this.flowButtons.Location = new System.Drawing.Point(9, 19);
 			this.flowButtons.Name = "flowButtons";
-			this.flowButtons.Size = new System.Drawing.Size(128, 174);
+			this.flowButtons.Size = new System.Drawing.Size(128, 203);
 			this.flowButtons.TabIndex = 6;
 			// 
 			// buttonStart
@@ -357,6 +359,28 @@
 			this.buttonCode.Visible = false;
 			this.buttonCode.Click += new System.EventHandler(this.buttonCode_Click);
 			// 
+			// buttonAtom
+			// 
+			this.buttonAtom.BackColorDown = System.Drawing.Color.White;
+			this.buttonAtom.BackColorOver = System.Drawing.Color.DarkGray;
+			this.buttonAtom.BackShadeColor = System.Drawing.SystemColors.Control;
+			this.buttonAtom.BackShadeRatio = 0D;
+			this.buttonAtom.BorderColor = System.Drawing.Color.Black;
+			this.buttonAtom.HasBorder = true;
+			this.buttonAtom.Image = global::Loveman.Properties.Resources.atom16;
+			this.buttonAtom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonAtom.ImagePadding = 3;
+			this.buttonAtom.Location = new System.Drawing.Point(3, 148);
+			this.buttonAtom.Name = "buttonAtom";
+			this.buttonAtom.Size = new System.Drawing.Size(122, 23);
+			this.buttonAtom.TabIndex = 7;
+			this.buttonAtom.Text = "Atom";
+			this.buttonAtom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonAtom.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
+			this.buttonAtom.TextPadding = 3;
+			this.buttonAtom.Visible = false;
+			this.buttonAtom.Click += new System.EventHandler(this.buttonAtom_Click);
+			// 
 			// buttonSublimeMerge
 			// 
 			this.buttonSublimeMerge.BackColorDown = System.Drawing.Color.White;
@@ -368,7 +392,7 @@
 			this.buttonSublimeMerge.Image = global::Loveman.Properties.Resources.merge16;
 			this.buttonSublimeMerge.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.buttonSublimeMerge.ImagePadding = 3;
-			this.buttonSublimeMerge.Location = new System.Drawing.Point(3, 148);
+			this.buttonSublimeMerge.Location = new System.Drawing.Point(3, 177);
 			this.buttonSublimeMerge.Name = "buttonSublimeMerge";
 			this.buttonSublimeMerge.Size = new System.Drawing.Size(122, 23);
 			this.buttonSublimeMerge.TabIndex = 5;
@@ -516,5 +540,6 @@
 		private Nimble.Controls.FlatControls.FlatButton buttonSublimeMerge;
 		private System.Windows.Forms.FlowLayoutPanel flowButtons;
 		private Nimble.Controls.FlatControls.FlatButton buttonCode;
+		private Nimble.Controls.FlatControls.FlatButton buttonAtom;
 	}
 }
