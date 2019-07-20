@@ -59,10 +59,12 @@ namespace Loveman
 
 			// This can fail if Path_Editor is an invalid value
 			try {
-				m_hasSublimeText = (Path.GetFileName(Settings.Default.Path_Editor) == "sublime_text.exe");
+				var editorExe = Path.GetFileName(Settings.Default.Path_Editor);
+
+				m_hasSublimeText = (editorExe == "sublime_text.exe");
 				buttonSublime.Visible = m_hasSublimeText;
 
-				m_hasVSCode = (Path.GetFileName(Settings.Default.Path_Editor) == "Code.exe");
+				m_hasVSCode = (editorExe == "Code.exe" || editorExe == "VSCodium.exe");
 				buttonCode.Visible = m_hasVSCode;
 			} catch { }
 
