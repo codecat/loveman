@@ -90,6 +90,7 @@
     <Compile Include="LoveVersion.cs" />
     <Compile Include="MoonLogLineInfo.cs" />
     <Compile Include="MoonQueuedItem.cs" />
+    <Compile Include="Native.cs" />
     <Compile Include="Plist.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProjectInfo.cs" />

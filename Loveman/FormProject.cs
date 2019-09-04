@@ -107,6 +107,29 @@ namespace Loveman
 			textProjectName.Text = m_project.m_name;
 			textProjectAuthor.Text = m_project.m_author;
 			textProjectBundleIdentifier.Text = m_project.m_bundleIdentifier;
+			textGameIcon.Text = m_project.m_iconFile;
+
+			UpdateIcon();
+		}
+
+		private void UpdateIcon()
+		{
+			var absoluteIconPath = Path.Combine(m_project.GetPath(), m_project.m_iconFile);
+			if (File.Exists(absoluteIconPath)) {
+				try {
+					using (var bmpSource = new Bitmap(absoluteIconPath)) {
+						using (var bmp = new Bitmap(32, 32)) {
+							using (var g = Graphics.FromImage(bmp)) {
+								g.DrawImage(bmpSource, new Rectangle(0, 0, 32, 32));
+							}
+							Icon = Icon.FromHandle(bmp.GetHicon());
+						}
+					}
+					return;
+				} catch { }
+			}
+			var resources = new ComponentResourceManager(typeof(FormMain));
+			Icon = (Icon)resources.GetObject("$this.Icon");
 		}
 
 		private void ShowInfoSave(bool visible)
@@ -195,6 +218,8 @@ namespace Loveman
 		private void textProjectInfo_TextChanged(object sender, EventArgs e)
 		{
 			ShowInfoSave(true);
+
+			UpdateIcon();
 		}
 
 		private void buttonSave_Click(object sender, EventArgs e)
@@ -367,10 +392,10 @@ namespace Loveman
 #if RELEASE
 				try {
 #endif
-					Process.Start(new ProcessStartInfo("git", "init") {
-						WorkingDirectory = m_project.GetPath(),
-						WindowStyle = ProcessWindowStyle.Hidden
-					}).WaitForExit();
+				Process.Start(new ProcessStartInfo("git", "init") {
+					WorkingDirectory = m_project.GetPath(),
+					WindowStyle = ProcessWindowStyle.Hidden
+				}).WaitForExit();
 #if RELEASE
 				} catch {
 					MessageBox.Show(this, "This project is not in source control yet, and \"git\" is not available in %PATH%.", Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -388,6 +413,36 @@ namespace Loveman
 		private void buttonBuildRelease_Click(object sender, EventArgs e)
 		{
 			new FormRelease(m_project).ShowDialog(this);
+		}
+
+		private void buttonBrowseIcon_Click(object sender, EventArgs e)
+		{
+			var ofd = new OpenFileDialog();
+			ofd.Filter = "Image files (*.png;*.jpg)|*.png;*.jpg|All files (*.*)|*.*";
+			if (ofd.ShowDialog() != DialogResult.OK) {
+				return;
+			}
+
+			if (!File.Exists(ofd.FileName)) {
+				return;
+			}
+
+			var imageFolder = Path.GetDirectoryName(ofd.FileName);
+			var projectPath = m_project.GetPath();
+
+			if (imageFolder.StartsWith(projectPath)) {
+				textGameIcon.Text = ofd.FileName.Substring(projectPath.Length + 1);
+			} else {
+				var newRelativePath = "LovemanIcon.png";
+				var newAbsolutePath = Path.Combine(m_project.GetPath(), newRelativePath);
+
+				if (File.Exists(newAbsolutePath)) {
+					File.Delete(newAbsolutePath);
+				}
+				File.Copy(ofd.FileName, newAbsolutePath);
+
+				textGameIcon.Text = newRelativePath;
+			}
 		}
 	}
 }

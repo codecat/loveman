@@ -31,6 +31,7 @@
 			this.groupMoonscript = new Nimble.Controls.FlatControls.FlatGroupBox();
 			this.listChanges = new Nimble.Controls.FlatControls.FlatList();
 			this.checkWatchForChanges = new System.Windows.Forms.CheckBox();
+			this.buttonBuildScripts = new Nimble.Controls.FlatControls.FlatButton();
 			this.flatGroupBox1 = new Nimble.Controls.FlatControls.FlatGroupBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
@@ -40,6 +41,8 @@
 			this.textProjectBundleIdentifier = new Nimble.Controls.ExtendedTextBox();
 			this.textProjectAuthor = new Nimble.Controls.ExtendedTextBox();
 			this.textProjectName = new Nimble.Controls.ExtendedTextBox();
+			this.buttonCancel = new Nimble.Controls.FlatControls.FlatButton();
+			this.buttonSave = new Nimble.Controls.FlatControls.FlatButton();
 			this.flowButtons = new System.Windows.Forms.FlowLayoutPanel();
 			this.buttonStart = new Nimble.Controls.FlatControls.FlatButton();
 			this.buttonStartConsole = new Nimble.Controls.FlatControls.FlatButton();
@@ -48,10 +51,8 @@
 			this.buttonCode = new Nimble.Controls.FlatControls.FlatButton();
 			this.buttonAtom = new Nimble.Controls.FlatControls.FlatButton();
 			this.buttonSublimeMerge = new Nimble.Controls.FlatControls.FlatButton();
-			this.buttonBuildScripts = new Nimble.Controls.FlatControls.FlatButton();
-			this.buttonCancel = new Nimble.Controls.FlatControls.FlatButton();
-			this.buttonSave = new Nimble.Controls.FlatControls.FlatButton();
 			this.buttonBuildRelease = new Nimble.Controls.FlatControls.FlatButton();
+			this.buttonBrowseIcon = new Nimble.Controls.FlatControls.FlatButton();
 			this.groupMoonscript.SuspendLayout();
 			this.flatGroupBox1.SuspendLayout();
 			this.flowButtons.SuspendLayout();
@@ -121,6 +122,28 @@
 			this.checkWatchForChanges.UseVisualStyleBackColor = true;
 			this.checkWatchForChanges.CheckedChanged += new System.EventHandler(this.checkWatchForChanges_CheckedChanged);
 			// 
+			// buttonBuildScripts
+			// 
+			this.buttonBuildScripts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonBuildScripts.BackColorDown = System.Drawing.Color.White;
+			this.buttonBuildScripts.BackColorOver = System.Drawing.Color.DarkGray;
+			this.buttonBuildScripts.BackShadeColor = System.Drawing.SystemColors.Control;
+			this.buttonBuildScripts.BackShadeRatio = 0D;
+			this.buttonBuildScripts.BorderColor = System.Drawing.Color.Black;
+			this.buttonBuildScripts.HasBorder = true;
+			this.buttonBuildScripts.Image = global::Loveman.Properties.Resources.plugin;
+			this.buttonBuildScripts.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonBuildScripts.ImagePadding = 3;
+			this.buttonBuildScripts.Location = new System.Drawing.Point(220, 17);
+			this.buttonBuildScripts.Name = "buttonBuildScripts";
+			this.buttonBuildScripts.Size = new System.Drawing.Size(100, 23);
+			this.buttonBuildScripts.TabIndex = 3;
+			this.buttonBuildScripts.Text = "Build scripts";
+			this.buttonBuildScripts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonBuildScripts.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
+			this.buttonBuildScripts.TextPadding = 3;
+			this.buttonBuildScripts.Click += new System.EventHandler(this.buttonBuildScripts_Click);
+			// 
 			// flatGroupBox1
 			// 
 			this.flatGroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -135,6 +158,7 @@
 			this.flatGroupBox1.Controls.Add(this.textProjectAuthor);
 			this.flatGroupBox1.Controls.Add(this.textProjectName);
 			this.flatGroupBox1.Controls.Add(this.buttonCancel);
+			this.flatGroupBox1.Controls.Add(this.buttonBrowseIcon);
 			this.flatGroupBox1.Controls.Add(this.buttonSave);
 			this.flatGroupBox1.HasBorders = true;
 			this.flatGroupBox1.LeftPadding = 10;
@@ -192,7 +216,7 @@
 			this.textGameIcon.HasBorders = true;
 			this.textGameIcon.Location = new System.Drawing.Point(98, 99);
 			this.textGameIcon.Name = "textGameIcon";
-			this.textGameIcon.Size = new System.Drawing.Size(222, 20);
+			this.textGameIcon.Size = new System.Drawing.Size(134, 20);
 			this.textGameIcon.TabIndex = 2;
 			this.textGameIcon.TextChanged += new System.EventHandler(this.textProjectInfo_TextChanged);
 			// 
@@ -234,6 +258,52 @@
 			this.textProjectName.Size = new System.Drawing.Size(222, 20);
 			this.textProjectName.TabIndex = 0;
 			this.textProjectName.TextChanged += new System.EventHandler(this.textProjectInfo_TextChanged);
+			// 
+			// buttonCancel
+			// 
+			this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonCancel.BackColorDown = System.Drawing.Color.White;
+			this.buttonCancel.BackColorOver = System.Drawing.Color.DarkGray;
+			this.buttonCancel.BackShadeColor = System.Drawing.SystemColors.Control;
+			this.buttonCancel.BackShadeRatio = 0D;
+			this.buttonCancel.BorderColor = System.Drawing.Color.Black;
+			this.buttonCancel.HasBorder = true;
+			this.buttonCancel.Image = global::Loveman.Properties.Resources.cancel;
+			this.buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonCancel.ImagePadding = 3;
+			this.buttonCancel.Location = new System.Drawing.Point(238, 130);
+			this.buttonCancel.Name = "buttonCancel";
+			this.buttonCancel.Size = new System.Drawing.Size(82, 23);
+			this.buttonCancel.TabIndex = 4;
+			this.buttonCancel.Text = "Cancel";
+			this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonCancel.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
+			this.buttonCancel.TextPadding = 3;
+			this.buttonCancel.Visible = false;
+			this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+			// 
+			// buttonSave
+			// 
+			this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonSave.BackColorDown = System.Drawing.Color.White;
+			this.buttonSave.BackColorOver = System.Drawing.Color.DarkGray;
+			this.buttonSave.BackShadeColor = System.Drawing.SystemColors.Control;
+			this.buttonSave.BackShadeRatio = 0D;
+			this.buttonSave.BorderColor = System.Drawing.Color.Black;
+			this.buttonSave.HasBorder = true;
+			this.buttonSave.Image = global::Loveman.Properties.Resources.disk;
+			this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonSave.ImagePadding = 3;
+			this.buttonSave.Location = new System.Drawing.Point(150, 130);
+			this.buttonSave.Name = "buttonSave";
+			this.buttonSave.Size = new System.Drawing.Size(82, 23);
+			this.buttonSave.TabIndex = 3;
+			this.buttonSave.Text = "Save";
+			this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonSave.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
+			this.buttonSave.TextPadding = 3;
+			this.buttonSave.Visible = false;
+			this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
 			// 
 			// flowButtons
 			// 
@@ -403,74 +473,6 @@
 			this.buttonSublimeMerge.Visible = false;
 			this.buttonSublimeMerge.Click += new System.EventHandler(this.buttonSublimeMerge_Click);
 			// 
-			// buttonBuildScripts
-			// 
-			this.buttonBuildScripts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.buttonBuildScripts.BackColorDown = System.Drawing.Color.White;
-			this.buttonBuildScripts.BackColorOver = System.Drawing.Color.DarkGray;
-			this.buttonBuildScripts.BackShadeColor = System.Drawing.SystemColors.Control;
-			this.buttonBuildScripts.BackShadeRatio = 0D;
-			this.buttonBuildScripts.BorderColor = System.Drawing.Color.Black;
-			this.buttonBuildScripts.HasBorder = true;
-			this.buttonBuildScripts.Image = global::Loveman.Properties.Resources.plugin;
-			this.buttonBuildScripts.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.buttonBuildScripts.ImagePadding = 3;
-			this.buttonBuildScripts.Location = new System.Drawing.Point(220, 17);
-			this.buttonBuildScripts.Name = "buttonBuildScripts";
-			this.buttonBuildScripts.Size = new System.Drawing.Size(100, 23);
-			this.buttonBuildScripts.TabIndex = 3;
-			this.buttonBuildScripts.Text = "Build scripts";
-			this.buttonBuildScripts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonBuildScripts.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
-			this.buttonBuildScripts.TextPadding = 3;
-			this.buttonBuildScripts.Click += new System.EventHandler(this.buttonBuildScripts_Click);
-			// 
-			// buttonCancel
-			// 
-			this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.buttonCancel.BackColorDown = System.Drawing.Color.White;
-			this.buttonCancel.BackColorOver = System.Drawing.Color.DarkGray;
-			this.buttonCancel.BackShadeColor = System.Drawing.SystemColors.Control;
-			this.buttonCancel.BackShadeRatio = 0D;
-			this.buttonCancel.BorderColor = System.Drawing.Color.Black;
-			this.buttonCancel.HasBorder = true;
-			this.buttonCancel.Image = global::Loveman.Properties.Resources.cancel;
-			this.buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.buttonCancel.ImagePadding = 3;
-			this.buttonCancel.Location = new System.Drawing.Point(238, 130);
-			this.buttonCancel.Name = "buttonCancel";
-			this.buttonCancel.Size = new System.Drawing.Size(82, 23);
-			this.buttonCancel.TabIndex = 4;
-			this.buttonCancel.Text = "Cancel";
-			this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonCancel.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
-			this.buttonCancel.TextPadding = 3;
-			this.buttonCancel.Visible = false;
-			this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
-			// 
-			// buttonSave
-			// 
-			this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.buttonSave.BackColorDown = System.Drawing.Color.White;
-			this.buttonSave.BackColorOver = System.Drawing.Color.DarkGray;
-			this.buttonSave.BackShadeColor = System.Drawing.SystemColors.Control;
-			this.buttonSave.BackShadeRatio = 0D;
-			this.buttonSave.BorderColor = System.Drawing.Color.Black;
-			this.buttonSave.HasBorder = true;
-			this.buttonSave.Image = global::Loveman.Properties.Resources.disk;
-			this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.buttonSave.ImagePadding = 3;
-			this.buttonSave.Location = new System.Drawing.Point(150, 130);
-			this.buttonSave.Name = "buttonSave";
-			this.buttonSave.Size = new System.Drawing.Size(82, 23);
-			this.buttonSave.TabIndex = 3;
-			this.buttonSave.Text = "Save";
-			this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonSave.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
-			this.buttonSave.TextPadding = 3;
-			this.buttonSave.Visible = false;
-			this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
-			// 
 			// buttonBuildRelease
 			// 
 			this.buttonBuildRelease.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -492,6 +494,28 @@
 			this.buttonBuildRelease.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
 			this.buttonBuildRelease.TextPadding = 3;
 			this.buttonBuildRelease.Click += new System.EventHandler(this.buttonBuildRelease_Click);
+			// 
+			// buttonBrowseIcon
+			// 
+			this.buttonBrowseIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonBrowseIcon.BackColorDown = System.Drawing.Color.White;
+			this.buttonBrowseIcon.BackColorOver = System.Drawing.Color.DarkGray;
+			this.buttonBrowseIcon.BackShadeColor = System.Drawing.SystemColors.Control;
+			this.buttonBrowseIcon.BackShadeRatio = 0D;
+			this.buttonBrowseIcon.BorderColor = System.Drawing.Color.Black;
+			this.buttonBrowseIcon.HasBorder = true;
+			this.buttonBrowseIcon.Image = global::Loveman.Properties.Resources.folder;
+			this.buttonBrowseIcon.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonBrowseIcon.ImagePadding = 3;
+			this.buttonBrowseIcon.Location = new System.Drawing.Point(238, 97);
+			this.buttonBrowseIcon.Name = "buttonBrowseIcon";
+			this.buttonBrowseIcon.Size = new System.Drawing.Size(82, 23);
+			this.buttonBrowseIcon.TabIndex = 3;
+			this.buttonBrowseIcon.Text = "Browse...";
+			this.buttonBrowseIcon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonBrowseIcon.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
+			this.buttonBrowseIcon.TextPadding = 3;
+			this.buttonBrowseIcon.Click += new System.EventHandler(this.buttonBrowseIcon_Click);
 			// 
 			// FormProject
 			// 
@@ -541,5 +565,6 @@
 		private System.Windows.Forms.FlowLayoutPanel flowButtons;
 		private Nimble.Controls.FlatControls.FlatButton buttonCode;
 		private Nimble.Controls.FlatControls.FlatButton buttonAtom;
+		private Nimble.Controls.FlatControls.FlatButton buttonBrowseIcon;
 	}
 }

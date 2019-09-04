@@ -10,10 +10,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -203,6 +206,7 @@ namespace Loveman
 							if (Path.GetExtension(relPath) == ".moon") { continue; }
 							if (relPath.EndsWith(".gitignore")) { continue; }
 							if (relPath == "loveman.json") { continue; }
+							if (relPath == "LovemanIcon.png") { continue; }
 							if (relPath == ".lovemanignore") { continue; }
 
 							// Filter out files from .lovemanignore file
@@ -294,6 +298,41 @@ namespace Loveman
 			return Path.GetInvalidFileNameChars().Aggregate(filename, (current, c) => current.Replace(c, '_'));
 		}
 
+		private void WriteIconsToWindowsExe(string exePath, string imagePath)
+		{
+			IntPtr hUpdate = Native.BeginUpdateResource(exePath, false);
+			if (hUpdate == IntPtr.Zero) {
+				return;
+			}
+
+			try {
+				using (var bmpSource = new Bitmap(imagePath)) {
+					var sizes = new int[] { 16, 32, 48, 64, 128, 256 };
+					for (int i = 0; i < 6; i++) {
+						var size = sizes[i];
+						using (var bmp = new Bitmap(size, size)) {
+							using (var g = Graphics.FromImage(bmp)) {
+								g.InterpolationMode = InterpolationMode.High;
+								g.DrawImage(bmpSource, new Rectangle(0, 0, size, size));
+							}
+
+							var ms = new MemoryStream();
+							bmp.Save(ms, ImageFormat.Png);
+							var bytes = ms.ToArray();
+							ms.Dispose();
+
+							var mBuffer = Marshal.AllocHGlobal(bytes.Length);
+							Marshal.Copy(bytes, 0, mBuffer, bytes.Length);
+							Native.UpdateResource(hUpdate, new IntPtr(3) /* RC_ICON */, new IntPtr(i + 1), 1033 /* Neutral */, mBuffer, (uint)bytes.Length);
+							Marshal.FreeHGlobal(mBuffer);
+						}
+					}
+				}
+			} catch { }
+
+			Native.EndUpdateResource(hUpdate, false);
+		}
+
 		private void BeginWindowsBuild(string platform, string downloadUrl)
 		{
 			m_tasks.Add(new Task(() => {
@@ -334,6 +373,14 @@ namespace Loveman
 
 							ExtractZipEntry(entry, releasePath);
 						}
+					}
+				}
+
+				// Edit the icon resource in the exe
+				if (m_project.m_iconFile != "") {
+					var iconPath = Path.Combine(m_project.GetPath(), m_project.m_iconFile);
+					if (File.Exists(iconPath)) {
+						WriteIconsToWindowsExe(loveExePath, iconPath);
 					}
 				}
 
