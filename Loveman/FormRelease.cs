@@ -27,7 +27,7 @@ namespace Loveman
 {
 	public partial class FormRelease : Form
 	{
-		const string URL_LOVE_DOWNLOADS = "https://api.bitbucket.org/2.0/repositories/rude/love/downloads/";
+		const string URL_LOVE_DOWNLOADS = "https://api.github.com/repos/love2d/love/releases";
 
 		private ProjectInfo m_project;
 		private LoveVersion m_loveVersion;
@@ -55,51 +55,51 @@ namespace Loveman
 				var wc = new WebClient();
 				wc.DownloadStringCompleted += (o, e) => {
 					if (e.Error != null) {
-						MessageBox.Show(this, "There was a problem fetching the Love2D downloads list from Bitbucket: " + e.Error.Message, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+						MessageBox.Show(this, "There was a problem fetching the Love2D downloads list from Github: " + e.Error.Message, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
 						Close();
 						return;
 					}
-					var obj = (Hashtable)Json.JsonDecode(e.Result);
 
-					var arrValues = (ArrayList)obj["values"];
+					var arrValues = (ArrayList)Json.JsonDecode(e.Result);
 					foreach (Hashtable value in arrValues) {
-						var filename = (string)value["name"];
-						if (filename.StartsWith("liblove")) {
-							continue;
-						}
-
-						var matchVersion = Regex.Match(filename, @"[\-_]([0-9][0-9a-z\.~]+)[\-_]([^\.]+)");
-						if (!matchVersion.Success) {
-							continue;
-						}
-
-						var version = matchVersion.Groups[1].Value;
-						var platform = matchVersion.Groups[2].Value;
-						var extension = Path.GetExtension(filename);
+						var version = (string)value["tag_name"];
+						var assets = (ArrayList)value["assets"];
 
 						if (version != m_loveVersion.Version) {
 							continue;
 						}
 
+						foreach (Hashtable asset in assets) {
+							if ((string)asset["content_type"] != "application/zip") {
+								continue;
+							}
+
+							var filename = (string)asset["name"];
+
+							// "love-11.3-macos.zip"
+							// "love-11.3-win32.zip"
+							// "love-11.3-win64.zip"
+							var matchVersion = Regex.Match(filename, @"^love-([0-9][0-9\.]+)-([^\.]+)\.zip$");
+							if (!matchVersion.Success) {
+								continue;
+							}
+
+							var platform = matchVersion.Groups[2].Value;
+							var url = (string)asset["browser_download_url"];
+
 #if DEBUG
-						Console.WriteLine("Possible version: {0} (platform {1})", filename, platform);
+							Console.WriteLine("Possible version: {0} (platform {1})", filename, platform);
 #endif
 
-						var url = (string)((dynamic)value["links"])["self"]["href"];
-
-						if ((platform == "win64" || platform == "win-x64") && extension == ".zip") {
-							m_loveVersion.Download_Win64 = url;
-						} else if ((platform == "win32" || platform == "win-x86") && extension == ".zip") {
-							m_loveVersion.Download_Win32 = url;
-						} else if ((platform == "macos" || platform == "macosx-ub") && extension == ".zip") {
-							m_loveVersion.Download_MacOS = url;
+							if (platform == "win64") {
+								m_loveVersion.Download_Win64 = url;
+							} else if (platform == "win32") {
+								m_loveVersion.Download_Win32 = url;
+							} else if (platform == "macos") {
+								m_loveVersion.Download_MacOS = url;
+							}
 						}
-					}
 
-					if (obj.ContainsKey("next") && !m_loveVersion.HasAllDownloads()) {
-						wc.DownloadStringAsync(new Uri((string)obj["next"]));
-						FoundVersions(false);
-					} else {
 						FoundVersions(true);
 					}
 				};
