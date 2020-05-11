@@ -54,11 +54,6 @@ namespace Loveman
 			m_watchTimer.Tick += WatchTimer_Tick;
 			m_watchTimer.Enabled = true;
 
-			if (!CanUseMoonscript()) {
-				checkWatchForChanges.Checked = false;
-				checkWatchForChanges.AutoCheck = false;
-			}
-
 			// This can fail if Path_Editor is an invalid value
 			try {
 				var editorExe = Path.GetFileName(Settings.Default.Path_Editor);
@@ -84,11 +79,6 @@ namespace Loveman
 			Interface.InterfaceTheme(this);
 
 			flowButtons.BorderStyle = BorderStyle.None;
-		}
-
-		private bool CanUseMoonscript()
-		{
-			return Settings.Default.Path_Moonscript != "" && Directory.Exists(Settings.Default.Path_Moonscript);
 		}
 
 		private void StartGame(bool console)
@@ -153,13 +143,9 @@ namespace Loveman
 
 		private Task<bool> BuildMoonscriptFile(string info, string relPath)
 		{
-			if (!CanUseMoonscript()) {
-				return null;
-			}
-
 			var ret = new Task<bool>(() => {
 				var startInfo = new ProcessStartInfo();
-				startInfo.FileName = Path.Combine(Settings.Default.Path_Moonscript, "moonc.exe");
+				startInfo.FileName = "Moonscript/moonc.exe";
 				startInfo.Arguments = relPath;
 				startInfo.WorkingDirectory = m_project.GetPath();
 				startInfo.RedirectStandardError = true;
@@ -340,11 +326,6 @@ namespace Loveman
 
 		private void buttonBuildScripts_Click(object sender, EventArgs e)
 		{
-			if (!CanUseMoonscript()) {
-				MessageBox.Show(this, "Moonscript is not set up yet. Add the directory to where Moonscript is located to the settings dialog.", Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				return;
-			}
-
 			var files = Directory.GetFiles(m_project.GetPath(), "*.moon", SearchOption.AllDirectories);
 			foreach (var file in files) {
 				BuildMoonscriptFile("Build all", file.Substring(m_project.GetPath().Length + 1));

@@ -38,6 +38,10 @@
 			this.textProjectName = new Nimble.Controls.ExtendedTextBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.labelCreatedPath = new System.Windows.Forms.Label();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.radioLove2D = new System.Windows.Forms.RadioButton();
+			this.radioLovr = new System.Windows.Forms.RadioButton();
+			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// buttonOK
@@ -52,7 +56,7 @@
 			this.buttonOK.Image = null;
 			this.buttonOK.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.buttonOK.ImagePadding = 3;
-			this.buttonOK.Location = new System.Drawing.Point(276, 131);
+			this.buttonOK.Location = new System.Drawing.Point(221, 187);
 			this.buttonOK.Name = "buttonOK";
 			this.buttonOK.Size = new System.Drawing.Size(86, 23);
 			this.buttonOK.TabIndex = 3;
@@ -74,7 +78,7 @@
 			this.buttonCancel.Image = null;
 			this.buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.buttonCancel.ImagePadding = 3;
-			this.buttonCancel.Location = new System.Drawing.Point(368, 131);
+			this.buttonCancel.Location = new System.Drawing.Point(313, 187);
 			this.buttonCancel.Name = "buttonCancel";
 			this.buttonCancel.Size = new System.Drawing.Size(86, 23);
 			this.buttonCancel.TabIndex = 4;
@@ -120,7 +124,7 @@
 			this.textProjectBundleIdentifier.HasBorders = true;
 			this.textProjectBundleIdentifier.Location = new System.Drawing.Point(106, 64);
 			this.textProjectBundleIdentifier.Name = "textProjectBundleIdentifier";
-			this.textProjectBundleIdentifier.Size = new System.Drawing.Size(348, 20);
+			this.textProjectBundleIdentifier.Size = new System.Drawing.Size(293, 20);
 			this.textProjectBundleIdentifier.TabIndex = 2;
 			this.textProjectBundleIdentifier.Text = "com.example.game";
 			// 
@@ -133,7 +137,7 @@
 			this.textProjectAuthor.HasBorders = true;
 			this.textProjectAuthor.Location = new System.Drawing.Point(106, 38);
 			this.textProjectAuthor.Name = "textProjectAuthor";
-			this.textProjectAuthor.Size = new System.Drawing.Size(348, 20);
+			this.textProjectAuthor.Size = new System.Drawing.Size(293, 20);
 			this.textProjectAuthor.TabIndex = 1;
 			this.textProjectAuthor.Text = "Unknown";
 			// 
@@ -146,7 +150,7 @@
 			this.textProjectName.HasBorders = true;
 			this.textProjectName.Location = new System.Drawing.Point(106, 12);
 			this.textProjectName.Name = "textProjectName";
-			this.textProjectName.Size = new System.Drawing.Size(348, 20);
+			this.textProjectName.Size = new System.Drawing.Size(293, 20);
 			this.textProjectName.TabIndex = 0;
 			this.textProjectName.TextChanged += new System.EventHandler(this.textProjectName_TextChanged);
 			// 
@@ -168,11 +172,48 @@
 			this.labelCreatedPath.TabIndex = 15;
 			this.labelCreatedPath.Text = "...";
 			// 
+			// groupBox1
+			// 
+			this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox1.Controls.Add(this.radioLovr);
+			this.groupBox1.Controls.Add(this.radioLove2D);
+			this.groupBox1.Location = new System.Drawing.Point(106, 109);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(293, 72);
+			this.groupBox1.TabIndex = 16;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "Project type";
+			// 
+			// radioLove2D
+			// 
+			this.radioLove2D.AutoSize = true;
+			this.radioLove2D.Checked = true;
+			this.radioLove2D.Location = new System.Drawing.Point(6, 19);
+			this.radioLove2D.Name = "radioLove2D";
+			this.radioLove2D.Size = new System.Drawing.Size(112, 17);
+			this.radioLove2D.TabIndex = 0;
+			this.radioLove2D.TabStop = true;
+			this.radioLove2D.Text = "LÖVE (love2d.org)";
+			this.radioLove2D.UseVisualStyleBackColor = true;
+			// 
+			// radioLovr
+			// 
+			this.radioLovr.AutoSize = true;
+			this.radioLovr.Location = new System.Drawing.Point(6, 42);
+			this.radioLovr.Name = "radioLovr";
+			this.radioLovr.Size = new System.Drawing.Size(98, 17);
+			this.radioLovr.TabIndex = 0;
+			this.radioLovr.Text = "LÖVR (lovr.org)";
+			this.radioLovr.UseVisualStyleBackColor = true;
+			// 
 			// FormNewProject
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(466, 166);
+			this.ClientSize = new System.Drawing.Size(411, 222);
+			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.labelCreatedPath);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
@@ -190,6 +231,8 @@
 			this.Name = "FormNewProject";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "New project";
+			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -207,5 +250,8 @@
 		private Nimble.Controls.ExtendedTextBox textProjectName;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label labelCreatedPath;
+		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.RadioButton radioLovr;
+		private System.Windows.Forms.RadioButton radioLove2D;
 	}
 }

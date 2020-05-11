@@ -5,9 +5,6 @@
     <Setting Name="Path_Love" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="Path_Moonscript" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="Path_Projects" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>

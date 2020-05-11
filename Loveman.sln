@@ -1,51 +1,26 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2042
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loveman", "Loveman\Loveman.csproj", "{95A89489-1399-4120-827F-3FE3A35A4DB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nimble", "..\..\Work\Nimble\Software\NimWrite\Nimble\Nimble.csproj", "{BE3E8FBE-99FB-462A-BCFE-4E0F6BDD04E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nimble", "Nimble\Nimble.csproj", "{BE3E8FBE-99FB-462A-BCFE-4E0F6BDD04E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
-		Debug-Steam|Any CPU = Debug-Steam|Any CPU
-		Debug-Test|Any CPU = Debug-Test|Any CPU
-		Debug-Yarr|Any CPU = Debug-Yarr|Any CPU
 		Release|Any CPU = Release|Any CPU
-		Release-Steam|Any CPU = Release-Steam|Any CPU
-		Release-Yarr|Any CPU = Release-Yarr|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{95A89489-1399-4120-827F-3FE3A35A4DB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{95A89489-1399-4120-827F-3FE3A35A4DB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{95A89489-1399-4120-827F-3FE3A35A4DB4}.Debug-Steam|Any CPU.ActiveCfg = Debug|Any CPU
-		{95A89489-1399-4120-827F-3FE3A35A4DB4}.Debug-Steam|Any CPU.Build.0 = Debug|Any CPU
-		{95A89489-1399-4120-827F-3FE3A35A4DB4}.Debug-Test|Any CPU.ActiveCfg = Debug|Any CPU
-		{95A89489-1399-4120-827F-3FE3A35A4DB4}.Debug-Test|Any CPU.Build.0 = Debug|Any CPU
-		{95A89489-1399-4120-827F-3FE3A35A4DB4}.Debug-Yarr|Any CPU.ActiveCfg = Debug|Any CPU
-		{95A89489-1399-4120-827F-3FE3A35A4DB4}.Debug-Yarr|Any CPU.Build.0 = Debug|Any CPU
 		{95A89489-1399-4120-827F-3FE3A35A4DB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95A89489-1399-4120-827F-3FE3A35A4DB4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{95A89489-1399-4120-827F-3FE3A35A4DB4}.Release-Steam|Any CPU.ActiveCfg = Release|Any CPU
-		{95A89489-1399-4120-827F-3FE3A35A4DB4}.Release-Steam|Any CPU.Build.0 = Release|Any CPU
-		{95A89489-1399-4120-827F-3FE3A35A4DB4}.Release-Yarr|Any CPU.ActiveCfg = Release|Any CPU
-		{95A89489-1399-4120-827F-3FE3A35A4DB4}.Release-Yarr|Any CPU.Build.0 = Release|Any CPU
 		{BE3E8FBE-99FB-462A-BCFE-4E0F6BDD04E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BE3E8FBE-99FB-462A-BCFE-4E0F6BDD04E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BE3E8FBE-99FB-462A-BCFE-4E0F6BDD04E3}.Debug-Steam|Any CPU.ActiveCfg = Debug-Steam|Any CPU
-		{BE3E8FBE-99FB-462A-BCFE-4E0F6BDD04E3}.Debug-Steam|Any CPU.Build.0 = Debug-Steam|Any CPU
-		{BE3E8FBE-99FB-462A-BCFE-4E0F6BDD04E3}.Debug-Test|Any CPU.ActiveCfg = Debug-Test|Any CPU
-		{BE3E8FBE-99FB-462A-BCFE-4E0F6BDD04E3}.Debug-Test|Any CPU.Build.0 = Debug-Test|Any CPU
-		{BE3E8FBE-99FB-462A-BCFE-4E0F6BDD04E3}.Debug-Yarr|Any CPU.ActiveCfg = Debug-Yarr|Any CPU
-		{BE3E8FBE-99FB-462A-BCFE-4E0F6BDD04E3}.Debug-Yarr|Any CPU.Build.0 = Debug-Yarr|Any CPU
 		{BE3E8FBE-99FB-462A-BCFE-4E0F6BDD04E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE3E8FBE-99FB-462A-BCFE-4E0F6BDD04E3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BE3E8FBE-99FB-462A-BCFE-4E0F6BDD04E3}.Release-Steam|Any CPU.ActiveCfg = Release-Steam|Any CPU
-		{BE3E8FBE-99FB-462A-BCFE-4E0F6BDD04E3}.Release-Steam|Any CPU.Build.0 = Release-Steam|Any CPU
-		{BE3E8FBE-99FB-462A-BCFE-4E0F6BDD04E3}.Release-Yarr|Any CPU.ActiveCfg = Release-Yarr|Any CPU
-		{BE3E8FBE-99FB-462A-BCFE-4E0F6BDD04E3}.Release-Yarr|Any CPU.Build.0 = Release-Yarr|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

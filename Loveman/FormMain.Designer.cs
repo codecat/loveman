@@ -58,7 +58,7 @@
 			this.listProjects.Name = "listProjects";
 			this.listProjects.SelectionColor = System.Drawing.Color.LightBlue;
 			this.listProjects.SelectionTextColor = System.Drawing.Color.Black;
-			this.listProjects.Size = new System.Drawing.Size(266, 246);
+			this.listProjects.Size = new System.Drawing.Size(308, 251);
 			this.listProjects.SubItemIndicator = true;
 			this.listProjects.TabIndex = 0;
 			this.listProjects.Text = "flatList1";
@@ -76,7 +76,7 @@
 			this.buttonNewProject.Image = global::Loveman.Properties.Resources.love16;
 			this.buttonNewProject.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.buttonNewProject.ImagePadding = 3;
-			this.buttonNewProject.Location = new System.Drawing.Point(12, 264);
+			this.buttonNewProject.Location = new System.Drawing.Point(12, 269);
 			this.buttonNewProject.Name = "buttonNewProject";
 			this.buttonNewProject.Size = new System.Drawing.Size(110, 23);
 			this.buttonNewProject.TabIndex = 1;
@@ -98,7 +98,7 @@
 			this.buttonSettings.Image = global::Loveman.Properties.Resources.cog;
 			this.buttonSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.buttonSettings.ImagePadding = 3;
-			this.buttonSettings.Location = new System.Drawing.Point(168, 264);
+			this.buttonSettings.Location = new System.Drawing.Point(210, 269);
 			this.buttonSettings.Name = "buttonSettings";
 			this.buttonSettings.Size = new System.Drawing.Size(110, 23);
 			this.buttonSettings.TabIndex = 2;
@@ -112,7 +112,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(290, 299);
+			this.ClientSize = new System.Drawing.Size(332, 304);
 			this.Controls.Add(this.listProjects);
 			this.Controls.Add(this.buttonNewProject);
 			this.Controls.Add(this.buttonSettings);

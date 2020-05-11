@@ -18,7 +18,6 @@ namespace Loveman
 			InitializeComponent();
 
 			textLovePath.Text = Settings.Default.Path_Love;
-			textMoonscriptPath.Text = Settings.Default.Path_Moonscript;
 			textProjectsPath.Text = Settings.Default.Path_Projects;
 			textEditorPath.Text = Settings.Default.Path_Editor;
 			textSublimeMergePath.Text = Settings.Default.Path_SublimeMerge;
@@ -29,7 +28,6 @@ namespace Loveman
 		private void buttonOK_Click(object sender, EventArgs e)
 		{
 			Settings.Default.Path_Love = textLovePath.Text;
-			Settings.Default.Path_Moonscript = textMoonscriptPath.Text;
 			Settings.Default.Path_Projects = textProjectsPath.Text;
 			Settings.Default.Path_Editor = textEditorPath.Text;
 			Settings.Default.Path_SublimeMerge = textSublimeMergePath.Text;
@@ -54,17 +52,6 @@ namespace Loveman
 				return;
 			}
 			textLovePath.Text = fbd.SelectedPath;
-		}
-
-		private void buttonBrowseMoon_Click(object sender, EventArgs e)
-		{
-			var fbd = new FolderBrowserDialog();
-			fbd.Description = "Navigate to the folder containing moonc.exe.";
-			fbd.SelectedPath = textMoonscriptPath.Text;
-			if (fbd.ShowDialog(this) != DialogResult.OK) {
-				return;
-			}
-			textMoonscriptPath.Text = fbd.SelectedPath;
 		}
 
 		private void buttonBrowseProjects_Click(object sender, EventArgs e)
