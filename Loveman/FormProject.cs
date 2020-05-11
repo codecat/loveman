@@ -84,8 +84,23 @@ namespace Loveman
 		private void StartGame(bool console)
 		{
 			var startInfo = new ProcessStartInfo();
-			startInfo.FileName = Path.Combine(Settings.Default.Path_Love, console ? "lovec.exe" : "love.exe");
-			startInfo.Arguments = "\"" + m_project.GetPath() + "\"";
+
+			if (m_project.m_type == ProjectInfo.ProjectType.Love2D) {
+				startInfo.FileName = Path.Combine(Settings.Default.Path_Love, "love.exe");
+				if (console) {
+					startInfo.FileName = Path.Combine(Settings.Default.Path_Love, "lovec.exe");
+				}
+
+			} else if (m_project.m_type == ProjectInfo.ProjectType.Lovr) {
+				startInfo.FileName = Path.Combine(Settings.Default.Path_Lovr, "lovr.exe");
+				if (console) {
+					// This doesn't work. Bug pending: https://github.com/bjornbytes/lovr/issues/258
+					startInfo.FileName = "cmd";
+					startInfo.Arguments = "/c \"" + Path.Combine(Settings.Default.Path_Lovr, "lovr.exe") + "\" --console";
+				}
+			}
+
+			startInfo.Arguments += " \"" + m_project.GetPath() + "\"";
 			startInfo.WorkingDirectory = m_project.GetPath();
 			Process.Start(startInfo);
 		}
@@ -118,8 +133,12 @@ namespace Loveman
 					return;
 				} catch { }
 			}
-			var resources = new ComponentResourceManager(typeof(FormMain));
-			Icon = (Icon)resources.GetObject("$this.Icon");
+
+			switch (m_project.m_type) {
+				case ProjectInfo.ProjectType.Love2D: Icon = Resources.love; break;
+				case ProjectInfo.ProjectType.Lovr: Icon = Resources.lovr; break;
+				default: Icon = Resources.love; break;
+			}
 		}
 
 		private void ShowInfoSave(bool visible)

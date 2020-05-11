@@ -119,15 +119,18 @@ namespace Loveman
 
 				var fli = listProjects.Items.Add(project.m_name);
 
+				switch (project.m_type) {
+					case ProjectInfo.ProjectType.Love2D: fli.Image = Resources.love16; break;
+					case ProjectInfo.ProjectType.Lovr: fli.Image = Resources.lovr16; break;
+				}
+
 				var subtext = "";
 				if (project.HasMoonscript()) {
-					subtext = "A Moonscript project by " + project.m_author;
+					subtext = "Moonscript project by " + project.m_author;
 				} else {
-					subtext = "A Lua project by " + project.m_author;
+					subtext = "Lua project by " + project.m_author;
 				}
 				fli.SubText = subtext;
-
-				fli.Image = project.HasMoonscript() ? Resources.moon16 : Resources.love16;
 				fli.Tag = project;
 			}
 		}

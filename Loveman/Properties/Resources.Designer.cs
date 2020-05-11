@@ -151,6 +151,16 @@ namespace Loveman.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon love {
+            get {
+                object obj = ResourceManager.GetObject("love", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap love16 {
@@ -177,6 +187,16 @@ namespace Loveman.Properties {
             get {
                 object obj = ResourceManager.GetObject("love48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon lovr {
+            get {
+                object obj = ResourceManager.GetObject("lovr", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
