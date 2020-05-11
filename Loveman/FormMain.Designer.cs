@@ -51,14 +51,17 @@
 			this.listProjects.HoverVisible = true;
 			this.listProjects.ItemHeight = 32;
 			this.listProjects.ItemImageSize = 16;
+			this.listProjects.ItemImageSizeSpacing = 4;
 			this.listProjects.ItemPaddingX = 4;
 			this.listProjects.ItemPaddingY = 2;
-			this.listProjects.Location = new System.Drawing.Point(12, 12);
+			this.listProjects.ItemSubTextSpacing = 4;
+			this.listProjects.Location = new System.Drawing.Point(13, 13);
+			this.listProjects.Margin = new System.Windows.Forms.Padding(4);
 			this.listProjects.MultiSelect = false;
 			this.listProjects.Name = "listProjects";
 			this.listProjects.SelectionColor = System.Drawing.Color.LightBlue;
 			this.listProjects.SelectionTextColor = System.Drawing.Color.Black;
-			this.listProjects.Size = new System.Drawing.Size(308, 251);
+			this.listProjects.Size = new System.Drawing.Size(361, 312);
 			this.listProjects.SubItemIndicator = true;
 			this.listProjects.TabIndex = 0;
 			this.listProjects.Text = "flatList1";
@@ -76,9 +79,10 @@
 			this.buttonNewProject.Image = global::Loveman.Properties.Resources.love16;
 			this.buttonNewProject.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.buttonNewProject.ImagePadding = 3;
-			this.buttonNewProject.Location = new System.Drawing.Point(12, 269);
+			this.buttonNewProject.Location = new System.Drawing.Point(13, 333);
+			this.buttonNewProject.Margin = new System.Windows.Forms.Padding(4);
 			this.buttonNewProject.Name = "buttonNewProject";
-			this.buttonNewProject.Size = new System.Drawing.Size(110, 23);
+			this.buttonNewProject.Size = new System.Drawing.Size(126, 28);
 			this.buttonNewProject.TabIndex = 1;
 			this.buttonNewProject.Text = "New project";
 			this.buttonNewProject.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -98,9 +102,10 @@
 			this.buttonSettings.Image = global::Loveman.Properties.Resources.cog;
 			this.buttonSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.buttonSettings.ImagePadding = 3;
-			this.buttonSettings.Location = new System.Drawing.Point(210, 269);
+			this.buttonSettings.Location = new System.Drawing.Point(248, 333);
+			this.buttonSettings.Margin = new System.Windows.Forms.Padding(4);
 			this.buttonSettings.Name = "buttonSettings";
-			this.buttonSettings.Size = new System.Drawing.Size(110, 23);
+			this.buttonSettings.Size = new System.Drawing.Size(126, 28);
 			this.buttonSettings.TabIndex = 2;
 			this.buttonSettings.Text = "Settings";
 			this.buttonSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -110,13 +115,15 @@
 			// 
 			// FormMain
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(332, 304);
+			this.ClientSize = new System.Drawing.Size(387, 374);
 			this.Controls.Add(this.listProjects);
 			this.Controls.Add(this.buttonNewProject);
 			this.Controls.Add(this.buttonSettings);
+			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "FormMain";
 			this.Text = "Loveman";
 			this.ResumeLayout(false);

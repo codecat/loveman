@@ -508,7 +508,6 @@ namespace Loveman
 			buttonCancel.Enabled = false;
 
 			labelBuildStatus.Visible = true;
-			progress.Visible = true;
 
 			BeginLoveBuild();
 

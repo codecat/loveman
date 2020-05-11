@@ -19,6 +19,11 @@ namespace Loveman
 		{
 			InitializeComponent();
 
+			radioLove2D.Enabled = (Settings.Default.Path_Love != "" && Directory.Exists(Settings.Default.Path_Love));
+			radioLovr.Enabled = (Settings.Default.Path_Lovr != "" && Directory.Exists(Settings.Default.Path_Lovr));
+
+			buttonOK.Enabled = (radioLove2D.Enabled || radioLovr.Enabled);
+
 			Interface.InterfaceTheme(this);
 		}
 
@@ -61,6 +66,11 @@ namespace Loveman
 			project.m_name = textProjectName.Text;
 			project.m_author = textProjectAuthor.Text;
 			project.m_bundleIdentifier = textProjectBundleIdentifier.Text;
+			if (radioLove2D.Checked) {
+				project.m_type = ProjectInfo.ProjectType.Love2D;
+			} else if (radioLovr.Checked) {
+				project.m_type = ProjectInfo.ProjectType.Lovr;
+			}
 			project.SaveJson();
 
 			Program.MainForm.ReloadProjects();

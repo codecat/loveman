@@ -38,14 +38,17 @@ namespace Loveman
 						Settings.Default.Save();
 					} else {
 						// :(
-						MessageBox.Show(this, "We couldn't automatically detect an installation of LOVE. Make sure you set the path in the settings dialog.", Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+						if (!Settings.Default.LoveNotFound_Warning_Shown) {
+							Settings.Default.LoveNotFound_Warning_Shown = true;
+							MessageBox.Show(this, "We couldn't automatically detect an installation of LÖVE. Make sure you set the path in the settings dialog.", Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+						}
 					}
 				}
 			}
 
 			// If we don't have a projects path set, we'll just use the documents folder
 			if (Settings.Default.Path_Projects == "") {
-				Settings.Default.Path_Projects = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "LOVE Projects");
+				Settings.Default.Path_Projects = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Loveman Projects");
 				Settings.Default.Save();
 			}
 

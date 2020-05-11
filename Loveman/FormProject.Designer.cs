@@ -42,6 +42,7 @@
 			this.textProjectAuthor = new Nimble.Controls.ExtendedTextBox();
 			this.textProjectName = new Nimble.Controls.ExtendedTextBox();
 			this.buttonCancel = new Nimble.Controls.FlatControls.FlatButton();
+			this.buttonBrowseIcon = new Nimble.Controls.FlatControls.FlatButton();
 			this.buttonSave = new Nimble.Controls.FlatControls.FlatButton();
 			this.flowButtons = new System.Windows.Forms.FlowLayoutPanel();
 			this.buttonStart = new Nimble.Controls.FlatControls.FlatButton();
@@ -52,7 +53,6 @@
 			this.buttonAtom = new Nimble.Controls.FlatControls.FlatButton();
 			this.buttonSublimeMerge = new Nimble.Controls.FlatControls.FlatButton();
 			this.buttonBuildRelease = new Nimble.Controls.FlatControls.FlatButton();
-			this.buttonBrowseIcon = new Nimble.Controls.FlatControls.FlatButton();
 			this.groupMoonscript.SuspendLayout();
 			this.flatGroupBox1.SuspendLayout();
 			this.flowButtons.SuspendLayout();
@@ -69,9 +69,10 @@
 			this.groupMoonscript.Controls.Add(this.buttonBuildScripts);
 			this.groupMoonscript.HasBorders = true;
 			this.groupMoonscript.LeftPadding = 10;
-			this.groupMoonscript.Location = new System.Drawing.Point(140, 174);
+			this.groupMoonscript.Location = new System.Drawing.Point(187, 214);
+			this.groupMoonscript.Margin = new System.Windows.Forms.Padding(4);
 			this.groupMoonscript.Name = "groupMoonscript";
-			this.groupMoonscript.Size = new System.Drawing.Size(326, 187);
+			this.groupMoonscript.Size = new System.Drawing.Size(521, 291);
 			this.groupMoonscript.TabIndex = 4;
 			this.groupMoonscript.Text = "Moonscript";
 			this.groupMoonscript.TextPadding = 2;
@@ -96,14 +97,17 @@
 			this.listChanges.HoverVisible = true;
 			this.listChanges.ItemHeight = 32;
 			this.listChanges.ItemImageSize = 16;
+			this.listChanges.ItemImageSizeSpacing = 4;
 			this.listChanges.ItemPaddingX = 4;
 			this.listChanges.ItemPaddingY = 2;
-			this.listChanges.Location = new System.Drawing.Point(6, 46);
+			this.listChanges.ItemSubTextSpacing = 4;
+			this.listChanges.Location = new System.Drawing.Point(8, 57);
+			this.listChanges.Margin = new System.Windows.Forms.Padding(4);
 			this.listChanges.MultiSelect = false;
 			this.listChanges.Name = "listChanges";
 			this.listChanges.SelectionColor = System.Drawing.Color.LightBlue;
 			this.listChanges.SelectionTextColor = System.Drawing.Color.Black;
-			this.listChanges.Size = new System.Drawing.Size(314, 138);
+			this.listChanges.Size = new System.Drawing.Size(505, 230);
 			this.listChanges.SubItemIndicator = true;
 			this.listChanges.TabIndex = 1;
 			this.listChanges.Text = "flatList1";
@@ -114,9 +118,10 @@
 			this.checkWatchForChanges.AutoSize = true;
 			this.checkWatchForChanges.Checked = true;
 			this.checkWatchForChanges.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.checkWatchForChanges.Location = new System.Drawing.Point(6, 21);
+			this.checkWatchForChanges.Location = new System.Drawing.Point(8, 26);
+			this.checkWatchForChanges.Margin = new System.Windows.Forms.Padding(4);
 			this.checkWatchForChanges.Name = "checkWatchForChanges";
-			this.checkWatchForChanges.Size = new System.Drawing.Size(117, 17);
+			this.checkWatchForChanges.Size = new System.Drawing.Size(138, 20);
 			this.checkWatchForChanges.TabIndex = 0;
 			this.checkWatchForChanges.Text = "Watch for changes";
 			this.checkWatchForChanges.UseVisualStyleBackColor = true;
@@ -134,9 +139,10 @@
 			this.buttonBuildScripts.Image = global::Loveman.Properties.Resources.plugin;
 			this.buttonBuildScripts.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.buttonBuildScripts.ImagePadding = 3;
-			this.buttonBuildScripts.Location = new System.Drawing.Point(220, 17);
+			this.buttonBuildScripts.Location = new System.Drawing.Point(380, 21);
+			this.buttonBuildScripts.Margin = new System.Windows.Forms.Padding(4);
 			this.buttonBuildScripts.Name = "buttonBuildScripts";
-			this.buttonBuildScripts.Size = new System.Drawing.Size(100, 23);
+			this.buttonBuildScripts.Size = new System.Drawing.Size(133, 28);
 			this.buttonBuildScripts.TabIndex = 3;
 			this.buttonBuildScripts.Text = "Build scripts";
 			this.buttonBuildScripts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -162,9 +168,10 @@
 			this.flatGroupBox1.Controls.Add(this.buttonSave);
 			this.flatGroupBox1.HasBorders = true;
 			this.flatGroupBox1.LeftPadding = 10;
-			this.flatGroupBox1.Location = new System.Drawing.Point(140, 12);
+			this.flatGroupBox1.Location = new System.Drawing.Point(187, 15);
+			this.flatGroupBox1.Margin = new System.Windows.Forms.Padding(4);
 			this.flatGroupBox1.Name = "flatGroupBox1";
-			this.flatGroupBox1.Size = new System.Drawing.Size(326, 156);
+			this.flatGroupBox1.Size = new System.Drawing.Size(521, 192);
 			this.flatGroupBox1.TabIndex = 1;
 			this.flatGroupBox1.Text = "Settings";
 			this.flatGroupBox1.TextPadding = 2;
@@ -174,36 +181,40 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(31, 102);
+			this.label4.Location = new System.Drawing.Point(48, 122);
+			this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(61, 13);
+			this.label4.Size = new System.Drawing.Size(76, 16);
 			this.label4.TabIndex = 2;
 			this.label4.Text = "Game icon:";
 			// 
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(7, 76);
+			this.label3.Location = new System.Drawing.Point(18, 90);
+			this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(85, 13);
+			this.label3.Size = new System.Drawing.Size(106, 16);
 			this.label3.TabIndex = 2;
 			this.label3.Text = "Bundle identifier:";
 			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(51, 50);
+			this.label2.Location = new System.Drawing.Point(75, 57);
+			this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(41, 13);
+			this.label2.Size = new System.Drawing.Size(49, 16);
 			this.label2.TabIndex = 2;
 			this.label2.Text = "Author:";
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(54, 24);
+			this.label1.Location = new System.Drawing.Point(76, 26);
+			this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(38, 13);
+			this.label1.Size = new System.Drawing.Size(48, 16);
 			this.label1.TabIndex = 2;
 			this.label1.Text = "Name:";
 			// 
@@ -214,9 +225,10 @@
 			this.textGameIcon.BorderColor = System.Drawing.SystemColors.InactiveBorder;
 			this.textGameIcon.BorderColorActive = System.Drawing.SystemColors.ActiveBorder;
 			this.textGameIcon.HasBorders = true;
-			this.textGameIcon.Location = new System.Drawing.Point(98, 99);
+			this.textGameIcon.Location = new System.Drawing.Point(132, 119);
+			this.textGameIcon.Margin = new System.Windows.Forms.Padding(4);
 			this.textGameIcon.Name = "textGameIcon";
-			this.textGameIcon.Size = new System.Drawing.Size(134, 20);
+			this.textGameIcon.Size = new System.Drawing.Size(264, 22);
 			this.textGameIcon.TabIndex = 2;
 			this.textGameIcon.TextChanged += new System.EventHandler(this.textProjectInfo_TextChanged);
 			// 
@@ -227,9 +239,10 @@
 			this.textProjectBundleIdentifier.BorderColor = System.Drawing.SystemColors.InactiveBorder;
 			this.textProjectBundleIdentifier.BorderColorActive = System.Drawing.SystemColors.ActiveBorder;
 			this.textProjectBundleIdentifier.HasBorders = true;
-			this.textProjectBundleIdentifier.Location = new System.Drawing.Point(98, 73);
+			this.textProjectBundleIdentifier.Location = new System.Drawing.Point(132, 87);
+			this.textProjectBundleIdentifier.Margin = new System.Windows.Forms.Padding(4);
 			this.textProjectBundleIdentifier.Name = "textProjectBundleIdentifier";
-			this.textProjectBundleIdentifier.Size = new System.Drawing.Size(222, 20);
+			this.textProjectBundleIdentifier.Size = new System.Drawing.Size(381, 22);
 			this.textProjectBundleIdentifier.TabIndex = 2;
 			this.textProjectBundleIdentifier.TextChanged += new System.EventHandler(this.textProjectInfo_TextChanged);
 			// 
@@ -240,9 +253,10 @@
 			this.textProjectAuthor.BorderColor = System.Drawing.SystemColors.InactiveBorder;
 			this.textProjectAuthor.BorderColorActive = System.Drawing.SystemColors.ActiveBorder;
 			this.textProjectAuthor.HasBorders = true;
-			this.textProjectAuthor.Location = new System.Drawing.Point(98, 47);
+			this.textProjectAuthor.Location = new System.Drawing.Point(132, 54);
+			this.textProjectAuthor.Margin = new System.Windows.Forms.Padding(4);
 			this.textProjectAuthor.Name = "textProjectAuthor";
-			this.textProjectAuthor.Size = new System.Drawing.Size(222, 20);
+			this.textProjectAuthor.Size = new System.Drawing.Size(381, 22);
 			this.textProjectAuthor.TabIndex = 1;
 			this.textProjectAuthor.TextChanged += new System.EventHandler(this.textProjectInfo_TextChanged);
 			// 
@@ -253,9 +267,10 @@
 			this.textProjectName.BorderColor = System.Drawing.SystemColors.InactiveBorder;
 			this.textProjectName.BorderColorActive = System.Drawing.SystemColors.ActiveBorder;
 			this.textProjectName.HasBorders = true;
-			this.textProjectName.Location = new System.Drawing.Point(98, 21);
+			this.textProjectName.Location = new System.Drawing.Point(132, 23);
+			this.textProjectName.Margin = new System.Windows.Forms.Padding(4);
 			this.textProjectName.Name = "textProjectName";
-			this.textProjectName.Size = new System.Drawing.Size(222, 20);
+			this.textProjectName.Size = new System.Drawing.Size(381, 22);
 			this.textProjectName.TabIndex = 0;
 			this.textProjectName.TextChanged += new System.EventHandler(this.textProjectInfo_TextChanged);
 			// 
@@ -271,9 +286,10 @@
 			this.buttonCancel.Image = global::Loveman.Properties.Resources.cancel;
 			this.buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.buttonCancel.ImagePadding = 3;
-			this.buttonCancel.Location = new System.Drawing.Point(238, 130);
+			this.buttonCancel.Location = new System.Drawing.Point(404, 156);
+			this.buttonCancel.Margin = new System.Windows.Forms.Padding(4);
 			this.buttonCancel.Name = "buttonCancel";
-			this.buttonCancel.Size = new System.Drawing.Size(82, 23);
+			this.buttonCancel.Size = new System.Drawing.Size(109, 28);
 			this.buttonCancel.TabIndex = 4;
 			this.buttonCancel.Text = "Cancel";
 			this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -281,6 +297,29 @@
 			this.buttonCancel.TextPadding = 3;
 			this.buttonCancel.Visible = false;
 			this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+			// 
+			// buttonBrowseIcon
+			// 
+			this.buttonBrowseIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonBrowseIcon.BackColorDown = System.Drawing.Color.White;
+			this.buttonBrowseIcon.BackColorOver = System.Drawing.Color.DarkGray;
+			this.buttonBrowseIcon.BackShadeColor = System.Drawing.SystemColors.Control;
+			this.buttonBrowseIcon.BackShadeRatio = 0D;
+			this.buttonBrowseIcon.BorderColor = System.Drawing.Color.Black;
+			this.buttonBrowseIcon.HasBorder = true;
+			this.buttonBrowseIcon.Image = global::Loveman.Properties.Resources.folder;
+			this.buttonBrowseIcon.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonBrowseIcon.ImagePadding = 3;
+			this.buttonBrowseIcon.Location = new System.Drawing.Point(404, 117);
+			this.buttonBrowseIcon.Margin = new System.Windows.Forms.Padding(4);
+			this.buttonBrowseIcon.Name = "buttonBrowseIcon";
+			this.buttonBrowseIcon.Size = new System.Drawing.Size(109, 28);
+			this.buttonBrowseIcon.TabIndex = 3;
+			this.buttonBrowseIcon.Text = "Browse...";
+			this.buttonBrowseIcon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.buttonBrowseIcon.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
+			this.buttonBrowseIcon.TextPadding = 3;
+			this.buttonBrowseIcon.Click += new System.EventHandler(this.buttonBrowseIcon_Click);
 			// 
 			// buttonSave
 			// 
@@ -294,9 +333,10 @@
 			this.buttonSave.Image = global::Loveman.Properties.Resources.disk;
 			this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.buttonSave.ImagePadding = 3;
-			this.buttonSave.Location = new System.Drawing.Point(150, 130);
+			this.buttonSave.Location = new System.Drawing.Point(287, 156);
+			this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
 			this.buttonSave.Name = "buttonSave";
-			this.buttonSave.Size = new System.Drawing.Size(82, 23);
+			this.buttonSave.Size = new System.Drawing.Size(109, 28);
 			this.buttonSave.TabIndex = 3;
 			this.buttonSave.Text = "Save";
 			this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -317,9 +357,10 @@
 			this.flowButtons.Controls.Add(this.buttonAtom);
 			this.flowButtons.Controls.Add(this.buttonSublimeMerge);
 			this.flowButtons.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-			this.flowButtons.Location = new System.Drawing.Point(9, 19);
+			this.flowButtons.Location = new System.Drawing.Point(12, 23);
+			this.flowButtons.Margin = new System.Windows.Forms.Padding(4);
 			this.flowButtons.Name = "flowButtons";
-			this.flowButtons.Size = new System.Drawing.Size(128, 203);
+			this.flowButtons.Size = new System.Drawing.Size(171, 252);
 			this.flowButtons.TabIndex = 6;
 			// 
 			// buttonStart
@@ -333,9 +374,10 @@
 			this.buttonStart.Image = global::Loveman.Properties.Resources.startwithoutdebugging_6556;
 			this.buttonStart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.buttonStart.ImagePadding = 3;
-			this.buttonStart.Location = new System.Drawing.Point(3, 3);
+			this.buttonStart.Location = new System.Drawing.Point(4, 4);
+			this.buttonStart.Margin = new System.Windows.Forms.Padding(4);
 			this.buttonStart.Name = "buttonStart";
-			this.buttonStart.Size = new System.Drawing.Size(122, 23);
+			this.buttonStart.Size = new System.Drawing.Size(163, 28);
 			this.buttonStart.TabIndex = 0;
 			this.buttonStart.Text = "Start game";
 			this.buttonStart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -354,9 +396,10 @@
 			this.buttonStartConsole.Image = global::Loveman.Properties.Resources.Console;
 			this.buttonStartConsole.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.buttonStartConsole.ImagePadding = 3;
-			this.buttonStartConsole.Location = new System.Drawing.Point(3, 32);
+			this.buttonStartConsole.Location = new System.Drawing.Point(4, 40);
+			this.buttonStartConsole.Margin = new System.Windows.Forms.Padding(4);
 			this.buttonStartConsole.Name = "buttonStartConsole";
-			this.buttonStartConsole.Size = new System.Drawing.Size(122, 23);
+			this.buttonStartConsole.Size = new System.Drawing.Size(163, 28);
 			this.buttonStartConsole.TabIndex = 1;
 			this.buttonStartConsole.Text = "Start with console";
 			this.buttonStartConsole.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -375,9 +418,10 @@
 			this.buttonFolder.Image = global::Loveman.Properties.Resources.folder;
 			this.buttonFolder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.buttonFolder.ImagePadding = 3;
-			this.buttonFolder.Location = new System.Drawing.Point(3, 61);
+			this.buttonFolder.Location = new System.Drawing.Point(4, 76);
+			this.buttonFolder.Margin = new System.Windows.Forms.Padding(4);
 			this.buttonFolder.Name = "buttonFolder";
-			this.buttonFolder.Size = new System.Drawing.Size(122, 23);
+			this.buttonFolder.Size = new System.Drawing.Size(163, 28);
 			this.buttonFolder.TabIndex = 2;
 			this.buttonFolder.Text = "Open folder";
 			this.buttonFolder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -396,9 +440,10 @@
 			this.buttonSublime.Image = global::Loveman.Properties.Resources.sublime16;
 			this.buttonSublime.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.buttonSublime.ImagePadding = 3;
-			this.buttonSublime.Location = new System.Drawing.Point(3, 90);
+			this.buttonSublime.Location = new System.Drawing.Point(4, 112);
+			this.buttonSublime.Margin = new System.Windows.Forms.Padding(4);
 			this.buttonSublime.Name = "buttonSublime";
-			this.buttonSublime.Size = new System.Drawing.Size(122, 23);
+			this.buttonSublime.Size = new System.Drawing.Size(163, 28);
 			this.buttonSublime.TabIndex = 2;
 			this.buttonSublime.Text = "Sublime Text";
 			this.buttonSublime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -418,9 +463,10 @@
 			this.buttonCode.Image = global::Loveman.Properties.Resources.code16;
 			this.buttonCode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.buttonCode.ImagePadding = 3;
-			this.buttonCode.Location = new System.Drawing.Point(3, 119);
+			this.buttonCode.Location = new System.Drawing.Point(4, 148);
+			this.buttonCode.Margin = new System.Windows.Forms.Padding(4);
 			this.buttonCode.Name = "buttonCode";
-			this.buttonCode.Size = new System.Drawing.Size(122, 23);
+			this.buttonCode.Size = new System.Drawing.Size(163, 28);
 			this.buttonCode.TabIndex = 6;
 			this.buttonCode.Text = "VS Code";
 			this.buttonCode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -440,9 +486,10 @@
 			this.buttonAtom.Image = global::Loveman.Properties.Resources.atom16;
 			this.buttonAtom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.buttonAtom.ImagePadding = 3;
-			this.buttonAtom.Location = new System.Drawing.Point(3, 148);
+			this.buttonAtom.Location = new System.Drawing.Point(4, 184);
+			this.buttonAtom.Margin = new System.Windows.Forms.Padding(4);
 			this.buttonAtom.Name = "buttonAtom";
-			this.buttonAtom.Size = new System.Drawing.Size(122, 23);
+			this.buttonAtom.Size = new System.Drawing.Size(163, 28);
 			this.buttonAtom.TabIndex = 7;
 			this.buttonAtom.Text = "Atom";
 			this.buttonAtom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -462,9 +509,10 @@
 			this.buttonSublimeMerge.Image = global::Loveman.Properties.Resources.merge16;
 			this.buttonSublimeMerge.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.buttonSublimeMerge.ImagePadding = 3;
-			this.buttonSublimeMerge.Location = new System.Drawing.Point(3, 177);
+			this.buttonSublimeMerge.Location = new System.Drawing.Point(4, 220);
+			this.buttonSublimeMerge.Margin = new System.Windows.Forms.Padding(4);
 			this.buttonSublimeMerge.Name = "buttonSublimeMerge";
-			this.buttonSublimeMerge.Size = new System.Drawing.Size(122, 23);
+			this.buttonSublimeMerge.Size = new System.Drawing.Size(163, 28);
 			this.buttonSublimeMerge.TabIndex = 5;
 			this.buttonSublimeMerge.Text = "Sublime Merge";
 			this.buttonSublimeMerge.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -485,9 +533,10 @@
 			this.buttonBuildRelease.Image = global::Loveman.Properties.Resources.love16;
 			this.buttonBuildRelease.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.buttonBuildRelease.ImagePadding = 3;
-			this.buttonBuildRelease.Location = new System.Drawing.Point(12, 338);
+			this.buttonBuildRelease.Location = new System.Drawing.Point(16, 477);
+			this.buttonBuildRelease.Margin = new System.Windows.Forms.Padding(4);
 			this.buttonBuildRelease.Name = "buttonBuildRelease";
-			this.buttonBuildRelease.Size = new System.Drawing.Size(122, 23);
+			this.buttonBuildRelease.Size = new System.Drawing.Size(163, 28);
 			this.buttonBuildRelease.TabIndex = 3;
 			this.buttonBuildRelease.Text = "Build release";
 			this.buttonBuildRelease.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -495,38 +544,18 @@
 			this.buttonBuildRelease.TextPadding = 3;
 			this.buttonBuildRelease.Click += new System.EventHandler(this.buttonBuildRelease_Click);
 			// 
-			// buttonBrowseIcon
-			// 
-			this.buttonBrowseIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.buttonBrowseIcon.BackColorDown = System.Drawing.Color.White;
-			this.buttonBrowseIcon.BackColorOver = System.Drawing.Color.DarkGray;
-			this.buttonBrowseIcon.BackShadeColor = System.Drawing.SystemColors.Control;
-			this.buttonBrowseIcon.BackShadeRatio = 0D;
-			this.buttonBrowseIcon.BorderColor = System.Drawing.Color.Black;
-			this.buttonBrowseIcon.HasBorder = true;
-			this.buttonBrowseIcon.Image = global::Loveman.Properties.Resources.folder;
-			this.buttonBrowseIcon.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.buttonBrowseIcon.ImagePadding = 3;
-			this.buttonBrowseIcon.Location = new System.Drawing.Point(238, 97);
-			this.buttonBrowseIcon.Name = "buttonBrowseIcon";
-			this.buttonBrowseIcon.Size = new System.Drawing.Size(82, 23);
-			this.buttonBrowseIcon.TabIndex = 3;
-			this.buttonBrowseIcon.Text = "Browse...";
-			this.buttonBrowseIcon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonBrowseIcon.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
-			this.buttonBrowseIcon.TextPadding = 3;
-			this.buttonBrowseIcon.Click += new System.EventHandler(this.buttonBrowseIcon_Click);
-			// 
 			// FormProject
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(478, 373);
+			this.ClientSize = new System.Drawing.Size(724, 520);
 			this.Controls.Add(this.flowButtons);
 			this.Controls.Add(this.groupMoonscript);
 			this.Controls.Add(this.flatGroupBox1);
 			this.Controls.Add(this.buttonBuildRelease);
+			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "FormProject";
 			this.Text = "Project";
 			this.groupMoonscript.ResumeLayout(false);

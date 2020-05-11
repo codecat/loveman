@@ -83,6 +83,15 @@ namespace Nimble.Controls.FlatControls
       set { _PaddingY = value; Invalidate(); }
     }
 
+    private int _ItemSubTextSpacing = 4;
+    [Description("Spacing between the text and the subtext of items")]
+    [Category("Appearance")]
+    public int ItemSubTextSpacing
+    {
+      get { return _ItemSubTextSpacing; }
+      set { _ItemSubTextSpacing = value; Invalidate(); }
+    }
+
     private int _ItemImageSize = 16;
     [Description("The size of the image in list items")]
     [Category("Appearance")]
@@ -90,6 +99,15 @@ namespace Nimble.Controls.FlatControls
     {
       get { return _ItemImageSize; }
       set { _ItemImageSize = value; Invalidate(); }
+    }
+
+    private int _ItemImageSizeSpacing = 4;
+    [Description("The spacing between the item image and the rest of the item")]
+    [Category("Appearance")]
+    public int ItemImageSizeSpacing
+    {
+      get { return _ItemImageSizeSpacing; }
+      set { _ItemImageSizeSpacing = value; Invalidate(); }
     }
 
     private bool _ShowHover = true;
@@ -481,7 +499,7 @@ namespace Nimble.Controls.FlatControls
       rect.Y -= AutoScrollPosition.Y;
 
       int itemImageSize = _ItemImageSize;
-      int itemImagePadding = itemImageSize + 2;
+      int itemImagePadding = itemImageSize + _ItemImageSizeSpacing * 2;
 
       Color foreColor = ForeColor;
       if (item.ForeColor != Color.Empty) {
@@ -506,7 +524,7 @@ namespace Nimble.Controls.FlatControls
       }
 
       if (item.Image != null) {
-        e.Graphics.DrawImage(item.Image, new Rectangle(_PaddingX + rect.X, rect.Y + rect.Height / 2 - itemImageSize / 2, itemImageSize, itemImageSize));
+        e.Graphics.DrawImage(item.Image, new Rectangle(_PaddingX + _ItemImageSizeSpacing + rect.X, rect.Y + rect.Height / 2 - itemImageSize / 2, itemImageSize, itemImageSize));
       }
 
       Font font = Font;
@@ -522,6 +540,13 @@ namespace Nimble.Controls.FlatControls
       SizeF sizeText = e.Graphics.MeasureString(item.Text, font);
       SizeF sizeSubText = e.Graphics.MeasureString(item.SubText, fontSub);
 
+      int textOffset = 0;
+      int subtextOffset = 0;
+      if (!sizeSubText.IsEmpty) {
+        subtextOffset = ItemSubTextSpacing / 2;
+        textOffset = -subtextOffset;
+      }
+
       if (item.ShowProgress) {
         ptOffsetText.Y -= 4;
       }
@@ -531,13 +556,13 @@ namespace Nimble.Controls.FlatControls
 
       e.Graphics.DrawString(item.Text, font, brushForeColor, new PointF(
         ptOffsetText.X + _PaddingX + rect.X + itemImagePadding,
-        ptOffsetText.Y + rect.Y + rect.Height / 2 - sizeText.Height / 2 - sizeSubText.Height / 2
+        ptOffsetText.Y + rect.Y + rect.Height / 2 - sizeText.Height / 2 - sizeSubText.Height / 2 + textOffset
       ));
 
       if (!sizeSubText.IsEmpty) {
         e.Graphics.DrawString(item.SubText, fontSub, brushForeColorSub, new PointF(
           ptOffsetText.X + _PaddingX + rect.X + itemImagePadding,
-          ptOffsetText.Y + rect.Y + rect.Height / 2 - sizeText.Height / 2 + sizeSubText.Height / 2
+          ptOffsetText.Y + rect.Y + rect.Height / 2 - sizeText.Height / 2 + sizeSubText.Height / 2 + subtextOffset
         ));
       }
 

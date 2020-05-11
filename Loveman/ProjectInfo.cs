@@ -10,11 +10,19 @@ namespace Loveman
 {
 	public class ProjectInfo
 	{
+		public enum ProjectType
+		{
+			Love2D,
+			Lovr,
+		}
+
 		private string m_path = "";
 
 		public string m_name = "";
 		public string m_author = "";
 		public string m_bundleIdentifier = "";
+		public ProjectType m_type = ProjectType.Love2D;
+
 		public string m_loveVersion = "";
 		public string m_iconFile = "";
 
@@ -30,9 +38,12 @@ namespace Loveman
 			var infoPath = GetInfoPath();
 			if (File.Exists(infoPath)) {
 				Hashtable obj = (Hashtable)Json.JsonDecode(File.ReadAllText(infoPath));
+
 				if (obj.ContainsKey("name")) { m_name = (string)obj["name"]; }
 				if (obj.ContainsKey("author")) { m_author = (string)obj["author"]; }
 				if (obj.ContainsKey("bundle-identifier")) { m_bundleIdentifier = (string)obj["bundle-identifier"]; }
+				if (obj.ContainsKey("type")) { m_type = (ProjectType)Enum.Parse(typeof(ProjectType), (string)obj["type"], true); }
+
 				if (obj.ContainsKey("love-version")) { m_loveVersion = (string)obj["love-version"]; }
 				if (obj.ContainsKey("icon-file")) { m_iconFile = (string)obj["icon-file"]; }
 			}
@@ -60,6 +71,8 @@ namespace Loveman
 			obj["name"] = m_name;
 			obj["author"] = m_author;
 			obj["bundle-identifier"] = m_bundleIdentifier;
+			obj["type"] = m_type.ToString();
+
 			obj["love-version"] = m_loveVersion;
 			obj["icon-file"] = m_iconFile;
 

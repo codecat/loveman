@@ -163,6 +163,10 @@
     <Content Include="Moonscript\moonc.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\love48.png" />
+    <Content Include="Resources\lovr16.png" />
+    <Content Include="Resources\lovr32.png" />
+    <Content Include="Resources\lovr48.png" />
     <None Include="Resources\atom16.png" />
     <None Include="Resources\code16.png" />
     <None Include="Resources\merge16.png" />

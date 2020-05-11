@@ -54,12 +54,12 @@ namespace Nimble.Interface
     {
       switch (strKey) {
         case "ifc_bLightTheme": return false;
-        case "ifc_colBackground": return Color.FromArgb(63, 63, 63);
-        case "ifc_colText": return Color.FromArgb(220, 220, 204);
-        case "ifc_colSelection": return Color.FromArgb(87, 91, 96);
-        case "ifc_colSelectionText": return Color.FromArgb(220, 220, 204);
-        case "ifc_colAccent": return Color.FromArgb(130, 134, 255);
-        case "ifc_colBorder": return Color.FromArgb(90, 90, 90);
+        case "ifc_colBackground": return Color.FromArgb(48, 48, 68);
+        case "ifc_colText": return Color.FromArgb(222, 222, 222);
+        case "ifc_colSelection": return Color.FromArgb(32, 32, 40);
+        case "ifc_colSelectionText": return Color.FromArgb(187, 187, 204);
+        case "ifc_colAccent": return Color.FromArgb(101, 74, 169);
+        case "ifc_colBorder": return Color.FromArgb(68, 68, 96);
         case "ifc_bBorders": return true;
         case "ifc_strImages": return "Default";
         case "ifc_fdeltaColorMouseOver": return 0.2f;

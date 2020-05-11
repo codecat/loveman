@@ -70,5 +70,29 @@ namespace Loveman.Properties {
                 this["Path_SublimeMerge"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Path_Lovr {
+            get {
+                return ((string)(this["Path_Lovr"]));
+            }
+            set {
+                this["Path_Lovr"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool LoveNotFound_Warning_Shown {
+            get {
+                return ((bool)(this["LoveNotFound_Warning_Shown"]));
+            }
+            set {
+                this["LoveNotFound_Warning_Shown"] = value;
+            }
+        }
     }
 }

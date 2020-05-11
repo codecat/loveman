@@ -42,16 +42,20 @@
 			this.label5 = new System.Windows.Forms.Label();
 			this.textSublimeMergePath = new Nimble.Controls.ExtendedTextBox();
 			this.buttonBrowseSublimeMerge = new Nimble.Controls.FlatControls.FlatButton();
+			this.label2 = new System.Windows.Forms.Label();
+			this.textLovrPath = new Nimble.Controls.ExtendedTextBox();
+			this.buttonBrowseLovr = new Nimble.Controls.FlatControls.FlatButton();
 			this.SuspendLayout();
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(56, 15);
+			this.label1.Location = new System.Drawing.Point(82, 18);
+			this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(62, 13);
+			this.label1.Size = new System.Drawing.Size(75, 16);
 			this.label1.TabIndex = 0;
-			this.label1.Text = "LOVE path:";
+			this.label1.Text = "LÖVE path:";
 			// 
 			// textLovePath
 			// 
@@ -60,9 +64,10 @@
 			this.textLovePath.BorderColor = System.Drawing.SystemColors.InactiveBorder;
 			this.textLovePath.BorderColorActive = System.Drawing.SystemColors.ActiveBorder;
 			this.textLovePath.HasBorders = true;
-			this.textLovePath.Location = new System.Drawing.Point(124, 12);
+			this.textLovePath.Location = new System.Drawing.Point(165, 15);
+			this.textLovePath.Margin = new System.Windows.Forms.Padding(4);
 			this.textLovePath.Name = "textLovePath";
-			this.textLovePath.Size = new System.Drawing.Size(247, 20);
+			this.textLovePath.Size = new System.Drawing.Size(332, 22);
 			this.textLovePath.TabIndex = 0;
 			// 
 			// buttonBrowseLove
@@ -77,9 +82,10 @@
 			this.buttonBrowseLove.Image = null;
 			this.buttonBrowseLove.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.buttonBrowseLove.ImagePadding = 3;
-			this.buttonBrowseLove.Location = new System.Drawing.Point(377, 11);
+			this.buttonBrowseLove.Location = new System.Drawing.Point(505, 13);
+			this.buttonBrowseLove.Margin = new System.Windows.Forms.Padding(4);
 			this.buttonBrowseLove.Name = "buttonBrowseLove";
-			this.buttonBrowseLove.Size = new System.Drawing.Size(74, 23);
+			this.buttonBrowseLove.Size = new System.Drawing.Size(99, 28);
 			this.buttonBrowseLove.TabIndex = 1;
 			this.buttonBrowseLove.Text = "Browse...";
 			this.buttonBrowseLove.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -99,9 +105,10 @@
 			this.buttonCancel.Image = null;
 			this.buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.buttonCancel.ImagePadding = 3;
-			this.buttonCancel.Location = new System.Drawing.Point(365, 142);
+			this.buttonCancel.Location = new System.Drawing.Point(489, 252);
+			this.buttonCancel.Margin = new System.Windows.Forms.Padding(4);
 			this.buttonCancel.Name = "buttonCancel";
-			this.buttonCancel.Size = new System.Drawing.Size(86, 23);
+			this.buttonCancel.Size = new System.Drawing.Size(115, 28);
 			this.buttonCancel.TabIndex = 5;
 			this.buttonCancel.Text = "Cancel";
 			this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -121,9 +128,10 @@
 			this.buttonOK.Image = null;
 			this.buttonOK.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.buttonOK.ImagePadding = 3;
-			this.buttonOK.Location = new System.Drawing.Point(273, 142);
+			this.buttonOK.Location = new System.Drawing.Point(366, 252);
+			this.buttonOK.Margin = new System.Windows.Forms.Padding(4);
 			this.buttonOK.Name = "buttonOK";
-			this.buttonOK.Size = new System.Drawing.Size(86, 23);
+			this.buttonOK.Size = new System.Drawing.Size(115, 28);
 			this.buttonOK.TabIndex = 4;
 			this.buttonOK.Text = "OK";
 			this.buttonOK.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -134,9 +142,10 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(46, 44);
+			this.label3.Location = new System.Drawing.Point(68, 112);
+			this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(72, 13);
+			this.label3.Size = new System.Drawing.Size(89, 16);
 			this.label3.TabIndex = 0;
 			this.label3.Text = "Projects path:";
 			// 
@@ -147,9 +156,10 @@
 			this.textProjectsPath.BorderColor = System.Drawing.SystemColors.InactiveBorder;
 			this.textProjectsPath.BorderColorActive = System.Drawing.SystemColors.ActiveBorder;
 			this.textProjectsPath.HasBorders = true;
-			this.textProjectsPath.Location = new System.Drawing.Point(124, 41);
+			this.textProjectsPath.Location = new System.Drawing.Point(165, 109);
+			this.textProjectsPath.Margin = new System.Windows.Forms.Padding(4);
 			this.textProjectsPath.Name = "textProjectsPath";
-			this.textProjectsPath.Size = new System.Drawing.Size(247, 20);
+			this.textProjectsPath.Size = new System.Drawing.Size(332, 22);
 			this.textProjectsPath.TabIndex = 2;
 			// 
 			// buttonBrowseProjects
@@ -164,9 +174,10 @@
 			this.buttonBrowseProjects.Image = null;
 			this.buttonBrowseProjects.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.buttonBrowseProjects.ImagePadding = 3;
-			this.buttonBrowseProjects.Location = new System.Drawing.Point(377, 40);
+			this.buttonBrowseProjects.Location = new System.Drawing.Point(505, 109);
+			this.buttonBrowseProjects.Margin = new System.Windows.Forms.Padding(4);
 			this.buttonBrowseProjects.Name = "buttonBrowseProjects";
-			this.buttonBrowseProjects.Size = new System.Drawing.Size(74, 23);
+			this.buttonBrowseProjects.Size = new System.Drawing.Size(99, 28);
 			this.buttonBrowseProjects.TabIndex = 3;
 			this.buttonBrowseProjects.Text = "Browse...";
 			this.buttonBrowseProjects.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -177,9 +188,10 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(57, 73);
+			this.label4.Location = new System.Drawing.Point(82, 149);
+			this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(61, 13);
+			this.label4.Size = new System.Drawing.Size(75, 16);
 			this.label4.TabIndex = 0;
 			this.label4.Text = "Editor path:";
 			// 
@@ -190,9 +202,10 @@
 			this.textEditorPath.BorderColor = System.Drawing.SystemColors.InactiveBorder;
 			this.textEditorPath.BorderColorActive = System.Drawing.SystemColors.ActiveBorder;
 			this.textEditorPath.HasBorders = true;
-			this.textEditorPath.Location = new System.Drawing.Point(124, 70);
+			this.textEditorPath.Location = new System.Drawing.Point(165, 146);
+			this.textEditorPath.Margin = new System.Windows.Forms.Padding(4);
 			this.textEditorPath.Name = "textEditorPath";
-			this.textEditorPath.Size = new System.Drawing.Size(247, 20);
+			this.textEditorPath.Size = new System.Drawing.Size(332, 22);
 			this.textEditorPath.TabIndex = 2;
 			// 
 			// buttonBrowseEditor
@@ -207,9 +220,10 @@
 			this.buttonBrowseEditor.Image = null;
 			this.buttonBrowseEditor.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.buttonBrowseEditor.ImagePadding = 3;
-			this.buttonBrowseEditor.Location = new System.Drawing.Point(377, 69);
+			this.buttonBrowseEditor.Location = new System.Drawing.Point(505, 144);
+			this.buttonBrowseEditor.Margin = new System.Windows.Forms.Padding(4);
 			this.buttonBrowseEditor.Name = "buttonBrowseEditor";
-			this.buttonBrowseEditor.Size = new System.Drawing.Size(74, 23);
+			this.buttonBrowseEditor.Size = new System.Drawing.Size(99, 28);
 			this.buttonBrowseEditor.TabIndex = 3;
 			this.buttonBrowseEditor.Text = "Browse...";
 			this.buttonBrowseEditor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -220,9 +234,10 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(14, 102);
+			this.label5.Location = new System.Drawing.Point(26, 185);
+			this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(104, 13);
+			this.label5.Size = new System.Drawing.Size(131, 16);
 			this.label5.TabIndex = 6;
 			this.label5.Text = "Sublime Merge path:";
 			// 
@@ -233,9 +248,10 @@
 			this.textSublimeMergePath.BorderColor = System.Drawing.SystemColors.InactiveBorder;
 			this.textSublimeMergePath.BorderColorActive = System.Drawing.SystemColors.ActiveBorder;
 			this.textSublimeMergePath.HasBorders = true;
-			this.textSublimeMergePath.Location = new System.Drawing.Point(124, 99);
+			this.textSublimeMergePath.Location = new System.Drawing.Point(165, 182);
+			this.textSublimeMergePath.Margin = new System.Windows.Forms.Padding(4);
 			this.textSublimeMergePath.Name = "textSublimeMergePath";
-			this.textSublimeMergePath.Size = new System.Drawing.Size(247, 20);
+			this.textSublimeMergePath.Size = new System.Drawing.Size(332, 22);
 			this.textSublimeMergePath.TabIndex = 2;
 			// 
 			// buttonBrowseSublimeMerge
@@ -250,9 +266,10 @@
 			this.buttonBrowseSublimeMerge.Image = null;
 			this.buttonBrowseSublimeMerge.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.buttonBrowseSublimeMerge.ImagePadding = 3;
-			this.buttonBrowseSublimeMerge.Location = new System.Drawing.Point(377, 98);
+			this.buttonBrowseSublimeMerge.Location = new System.Drawing.Point(505, 180);
+			this.buttonBrowseSublimeMerge.Margin = new System.Windows.Forms.Padding(4);
 			this.buttonBrowseSublimeMerge.Name = "buttonBrowseSublimeMerge";
-			this.buttonBrowseSublimeMerge.Size = new System.Drawing.Size(74, 23);
+			this.buttonBrowseSublimeMerge.Size = new System.Drawing.Size(99, 28);
 			this.buttonBrowseSublimeMerge.TabIndex = 3;
 			this.buttonBrowseSublimeMerge.Text = "Browse...";
 			this.buttonBrowseSublimeMerge.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -260,11 +277,57 @@
 			this.buttonBrowseSublimeMerge.TextPadding = 3;
 			this.buttonBrowseSublimeMerge.Click += new System.EventHandler(this.buttonBrowseSublimeMerge_Click);
 			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(81, 54);
+			this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(76, 16);
+			this.label2.TabIndex = 0;
+			this.label2.Text = "LÖVR path:";
+			// 
+			// textLovrPath
+			// 
+			this.textLovrPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.textLovrPath.BorderColor = System.Drawing.SystemColors.InactiveBorder;
+			this.textLovrPath.BorderColorActive = System.Drawing.SystemColors.ActiveBorder;
+			this.textLovrPath.HasBorders = true;
+			this.textLovrPath.Location = new System.Drawing.Point(165, 51);
+			this.textLovrPath.Margin = new System.Windows.Forms.Padding(4);
+			this.textLovrPath.Name = "textLovrPath";
+			this.textLovrPath.Size = new System.Drawing.Size(332, 22);
+			this.textLovrPath.TabIndex = 0;
+			// 
+			// buttonBrowseLovr
+			// 
+			this.buttonBrowseLovr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonBrowseLovr.BackColorDown = System.Drawing.Color.White;
+			this.buttonBrowseLovr.BackColorOver = System.Drawing.Color.DarkGray;
+			this.buttonBrowseLovr.BackShadeColor = System.Drawing.SystemColors.Control;
+			this.buttonBrowseLovr.BackShadeRatio = 0D;
+			this.buttonBrowseLovr.BorderColor = System.Drawing.Color.Black;
+			this.buttonBrowseLovr.HasBorder = true;
+			this.buttonBrowseLovr.Image = null;
+			this.buttonBrowseLovr.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.buttonBrowseLovr.ImagePadding = 3;
+			this.buttonBrowseLovr.Location = new System.Drawing.Point(505, 50);
+			this.buttonBrowseLovr.Margin = new System.Windows.Forms.Padding(5);
+			this.buttonBrowseLovr.Name = "buttonBrowseLovr";
+			this.buttonBrowseLovr.Size = new System.Drawing.Size(99, 28);
+			this.buttonBrowseLovr.TabIndex = 1;
+			this.buttonBrowseLovr.Text = "Browse...";
+			this.buttonBrowseLovr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.buttonBrowseLovr.TextImageRelation = Nimble.Controls.FlatControls.FlatTextImageRelation.Normal;
+			this.buttonBrowseLovr.TextPadding = 3;
+			this.buttonBrowseLovr.Click += new System.EventHandler(this.buttonBrowseLovr_Click);
+			// 
 			// FormSettings
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(463, 177);
+			this.ClientSize = new System.Drawing.Size(617, 293);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.buttonOK);
 			this.Controls.Add(this.buttonCancel);
@@ -275,12 +338,17 @@
 			this.Controls.Add(this.textEditorPath);
 			this.Controls.Add(this.textProjectsPath);
 			this.Controls.Add(this.label4);
+			this.Controls.Add(this.buttonBrowseLovr);
 			this.Controls.Add(this.buttonBrowseLove);
+			this.Controls.Add(this.textLovrPath);
 			this.Controls.Add(this.label3);
+			this.Controls.Add(this.label2);
 			this.Controls.Add(this.textLovePath);
 			this.Controls.Add(this.label1);
+			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "FormSettings";
@@ -307,5 +375,8 @@
 		private System.Windows.Forms.Label label5;
 		private Nimble.Controls.ExtendedTextBox textSublimeMergePath;
 		private Nimble.Controls.FlatControls.FlatButton buttonBrowseSublimeMerge;
+		private System.Windows.Forms.Label label2;
+		private Nimble.Controls.ExtendedTextBox textLovrPath;
+		private Nimble.Controls.FlatControls.FlatButton buttonBrowseLovr;
 	}
 }

@@ -18,6 +18,8 @@ namespace Loveman
 			InitializeComponent();
 
 			textLovePath.Text = Settings.Default.Path_Love;
+			textLovrPath.Text = Settings.Default.Path_Lovr;
+
 			textProjectsPath.Text = Settings.Default.Path_Projects;
 			textEditorPath.Text = Settings.Default.Path_Editor;
 			textSublimeMergePath.Text = Settings.Default.Path_SublimeMerge;
@@ -28,9 +30,12 @@ namespace Loveman
 		private void buttonOK_Click(object sender, EventArgs e)
 		{
 			Settings.Default.Path_Love = textLovePath.Text;
+			Settings.Default.Path_Lovr = textLovrPath.Text;
+
 			Settings.Default.Path_Projects = textProjectsPath.Text;
 			Settings.Default.Path_Editor = textEditorPath.Text;
 			Settings.Default.Path_SublimeMerge = textSublimeMergePath.Text;
+
 			Settings.Default.Save();
 
 			DialogResult = DialogResult.OK;
@@ -46,7 +51,7 @@ namespace Loveman
 		private void buttonBrowseLove_Click(object sender, EventArgs e)
 		{
 			var fbd = new FolderBrowserDialog();
-			fbd.Description = "Navigate to the folder where LOVE is installed.";
+			fbd.Description = "Navigate to the folder where LÖVE is installed.";
 			fbd.SelectedPath = textLovePath.Text;
 			if (fbd.ShowDialog(this) != DialogResult.OK) {
 				return;
@@ -54,10 +59,21 @@ namespace Loveman
 			textLovePath.Text = fbd.SelectedPath;
 		}
 
+		private void buttonBrowseLovr_Click(object sender, EventArgs e)
+		{
+			var fbd = new FolderBrowserDialog();
+			fbd.Description = "Navigate to the folder where LÖVR is installed.";
+			fbd.SelectedPath = textLovrPath.Text;
+			if (fbd.ShowDialog(this) != DialogResult.OK) {
+				return;
+			}
+			textLovrPath.Text = fbd.SelectedPath;
+		}
+
 		private void buttonBrowseProjects_Click(object sender, EventArgs e)
 		{
 			var fbd = new FolderBrowserDialog();
-			fbd.Description = "Navigate to the folder where you store LOVE projects.";
+			fbd.Description = "Navigate to the folder where you store projects.";
 			fbd.SelectedPath = textProjectsPath.Text;
 			if (fbd.ShowDialog(this) != DialogResult.OK) {
 				return;
