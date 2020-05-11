@@ -94,9 +94,7 @@ namespace Loveman
 			} else if (m_project.m_type == LoveType.Lovr) {
 				startInfo.FileName = Path.Combine(Settings.Default.Path_Lovr, "lovr.exe");
 				if (console) {
-					// This doesn't work. Bug pending: https://github.com/bjornbytes/lovr/issues/258
-					startInfo.FileName = "cmd";
-					startInfo.Arguments = "/c \"" + Path.Combine(Settings.Default.Path_Lovr, "lovr.exe") + "\" --console";
+					startInfo.Arguments = "--console";
 				}
 			}
 
