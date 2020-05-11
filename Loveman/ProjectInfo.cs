@@ -10,18 +10,12 @@ namespace Loveman
 {
 	public class ProjectInfo
 	{
-		public enum ProjectType
-		{
-			Love2D,
-			Lovr,
-		}
-
 		private string m_path = "";
 
 		public string m_name = "";
 		public string m_author = "";
 		public string m_bundleIdentifier = "";
-		public ProjectType m_type = ProjectType.Love2D;
+		public LoveType m_type = LoveType.Love2D;
 
 		public string m_loveVersion = "";
 		public string m_iconFile = "";
@@ -42,7 +36,7 @@ namespace Loveman
 				if (obj.ContainsKey("name")) { m_name = (string)obj["name"]; }
 				if (obj.ContainsKey("author")) { m_author = (string)obj["author"]; }
 				if (obj.ContainsKey("bundle-identifier")) { m_bundleIdentifier = (string)obj["bundle-identifier"]; }
-				if (obj.ContainsKey("type")) { m_type = (ProjectType)Enum.Parse(typeof(ProjectType), (string)obj["type"], true); }
+				if (obj.ContainsKey("type")) { m_type = (LoveType)Enum.Parse(typeof(LoveType), (string)obj["type"], true); }
 
 				if (obj.ContainsKey("love-version")) { m_loveVersion = (string)obj["love-version"]; }
 				if (obj.ContainsKey("icon-file")) { m_iconFile = (string)obj["icon-file"]; }
@@ -61,7 +55,7 @@ namespace Loveman
 			}
 
 			if (m_loveVersion == "") {
-				m_loveVersion = LoveVersion.GetInstalledVersion();
+				m_loveVersion = LoveVersion.GetInstalledVersion(m_type);
 			}
 		}
 

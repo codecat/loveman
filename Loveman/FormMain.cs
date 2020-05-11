@@ -120,8 +120,8 @@ namespace Loveman
 				var fli = listProjects.Items.Add(project.m_name);
 
 				switch (project.m_type) {
-					case ProjectInfo.ProjectType.Love2D: fli.Image = Resources.love16; break;
-					case ProjectInfo.ProjectType.Lovr: fli.Image = Resources.lovr16; break;
+					case LoveType.Love2D: fli.Image = Resources.love16; break;
+					case LoveType.Lovr: fli.Image = Resources.lovr16; break;
 				}
 
 				var subtext = "";

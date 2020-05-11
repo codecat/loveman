@@ -85,13 +85,13 @@ namespace Loveman
 		{
 			var startInfo = new ProcessStartInfo();
 
-			if (m_project.m_type == ProjectInfo.ProjectType.Love2D) {
+			if (m_project.m_type == LoveType.Love2D) {
 				startInfo.FileName = Path.Combine(Settings.Default.Path_Love, "love.exe");
 				if (console) {
 					startInfo.FileName = Path.Combine(Settings.Default.Path_Love, "lovec.exe");
 				}
 
-			} else if (m_project.m_type == ProjectInfo.ProjectType.Lovr) {
+			} else if (m_project.m_type == LoveType.Lovr) {
 				startInfo.FileName = Path.Combine(Settings.Default.Path_Lovr, "lovr.exe");
 				if (console) {
 					// This doesn't work. Bug pending: https://github.com/bjornbytes/lovr/issues/258
@@ -135,8 +135,8 @@ namespace Loveman
 			}
 
 			switch (m_project.m_type) {
-				case ProjectInfo.ProjectType.Love2D: Icon = Resources.love; break;
-				case ProjectInfo.ProjectType.Lovr: Icon = Resources.lovr; break;
+				case LoveType.Love2D: Icon = Resources.love; break;
+				case LoveType.Lovr: Icon = Resources.lovr; break;
 				default: Icon = Resources.love; break;
 			}
 		}

@@ -1,14 +1,8 @@
-﻿using ICSharpCode.SharpZipLib.GZip;
-using ICSharpCode.SharpZipLib.Tar;
-using Loveman.Properties;
-using Nimble.Interface;
+﻿using Nimble.Interface;
 using Nimble.JSON;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
@@ -17,7 +11,6 @@ using System.IO.Compression;
 using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
@@ -28,6 +21,7 @@ namespace Loveman
 	public partial class FormRelease : Form
 	{
 		const string URL_LOVE_DOWNLOADS = "https://api.github.com/repos/love2d/love/releases";
+		const string URL_LOVR_DOWNLOADS = "https://api.github.com/repos/bjornbytes/lovr/releases";
 
 		private ProjectInfo m_project;
 		private LoveVersion m_loveVersion;
@@ -41,7 +35,8 @@ namespace Loveman
 			m_project = projectInfo;
 
 			m_loveVersion = new LoveVersion();
-			m_loveVersion.Version = LoveVersion.GetInstalledVersion();
+			m_loveVersion.Type = projectInfo.m_type;
+			m_loveVersion.Version = LoveVersion.GetInstalledVersion(projectInfo.m_type);
 
 			m_tasks = new List<Task>();
 
@@ -50,7 +45,7 @@ namespace Loveman
 			if (File.Exists(GetVersionPath("macos"))) { m_loveVersion.Download_MacOS = ".."; }
 
 			if (!m_loveVersion.HasAllDownloads()) {
-				labelStatus.Text = "Finding version downloads for LOVE " + m_loveVersion.Version + "...";
+				labelStatus.Text = "Finding version downloads for " + m_loveVersion.Version + "...";
 
 				var wc = new WebClient();
 				wc.DownloadStringCompleted += (o, e) => {
@@ -70,30 +65,45 @@ namespace Loveman
 						}
 
 						foreach (Hashtable asset in assets) {
-							if ((string)asset["content_type"] != "application/zip") {
+							var contentType = (string)asset["content_type"];
+							if (contentType != "application/zip" && contentType != "application/x-zip-compressed") {
 								continue;
 							}
 
 							var filename = (string)asset["name"];
+							var platform = "";
 
-							// "love-11.3-macos.zip"
-							// "love-11.3-win32.zip"
-							// "love-11.3-win64.zip"
-							var matchVersion = Regex.Match(filename, @"^love-([0-9][0-9\.]+)-([^\.]+)\.zip$");
-							if (!matchVersion.Success) {
-								continue;
+							if (m_loveVersion.Type == LoveType.Love2D) {
+								// "love-11.3-macos.zip"
+								// "love-11.3-win32.zip"
+								// "love-11.3-win64.zip"
+								var matchVersion = Regex.Match(filename, @"^love-[^\-]+-([^\.]+)\.zip$");
+								if (!matchVersion.Success) {
+									continue;
+								}
+
+								platform = matchVersion.Groups[1].Value;
+
+							} else if (m_loveVersion.Type == LoveType.Lovr) {
+								// "lovr-v0.12.0-windows-32.zip"
+								// "lovr-v0.13.0-windows-64.zip"
+								var matchVersion = Regex.Match(filename, @"^lovr-[^\-]+-([^\.]+)\.zip$");
+								if (!matchVersion.Success) {
+									continue;
+								}
+
+								platform = matchVersion.Groups[1].Value;
 							}
 
-							var platform = matchVersion.Groups[2].Value;
 							var url = (string)asset["browser_download_url"];
 
 #if DEBUG
 							Console.WriteLine("Possible version: {0} (platform {1})", filename, platform);
 #endif
 
-							if (platform == "win64") {
+							if (platform == "win64" || platform == "windows-64") {
 								m_loveVersion.Download_Win64 = url;
-							} else if (platform == "win32") {
+							} else if (platform == "win32" || platform == "windows-32") {
 								m_loveVersion.Download_Win32 = url;
 							} else if (platform == "macos") {
 								m_loveVersion.Download_MacOS = url;
@@ -104,7 +114,11 @@ namespace Loveman
 					}
 				};
 				wc.Headers[HttpRequestHeader.UserAgent] = "Loveman / nimble.tools";
-				wc.DownloadStringAsync(new Uri(URL_LOVE_DOWNLOADS));
+
+				switch (m_loveVersion.Type) {
+					case LoveType.Love2D: wc.DownloadStringAsync(new Uri(URL_LOVE_DOWNLOADS)); break;
+					case LoveType.Lovr: wc.DownloadStringAsync(new Uri(URL_LOVR_DOWNLOADS)); break;
+				}
 			}
 
 			Interface.InterfaceTheme(this);
@@ -136,7 +150,7 @@ namespace Loveman
 			if (!Directory.Exists("LoveVersions")) {
 				Directory.CreateDirectory("LoveVersions");
 			}
-			return "LoveVersions/" + m_loveVersion.Version + "_" + platform + ".bin";
+			return "LoveVersions/" + m_loveVersion.Type.ToString() + "_" + m_loveVersion.Version + "_" + platform + ".bin";
 		}
 
 		private void DownloadVersion(string url, string path)
@@ -151,15 +165,26 @@ namespace Loveman
 			wc.DownloadFile(url, path);
 		}
 
+		private string GetZipExtension()
+		{
+			switch (m_loveVersion.Type) {
+				case LoveType.Love2D: return ".love";
+				case LoveType.Lovr: return ".lovr";
+			}
+			return ".zip";
+		}
+
 		private void BeginLoveBuild()
 		{
 			m_tasks.Add(new Task(() => {
-				Invoke(new Action(() => labelBuildStatus.Text = "Building .love file"));
+				var useExtension = GetZipExtension();
+
+				Invoke(new Action(() => labelBuildStatus.Text = "Building " + useExtension + " file"));
 
 				var projectPath = m_project.GetPath();
 				var ignoreFilePath = Path.Combine(projectPath, ".lovemanignore");
 				var releasePath = Path.Combine(projectPath, "Release");
-				var loveFilePath = Path.Combine(releasePath, "Game.love");
+				var loveFilePath = Path.Combine(releasePath, "Game" + useExtension);
 
 				// Create Release folder if it doesn't exist yet
 				if (!Directory.Exists(releasePath)) {
@@ -363,11 +388,11 @@ namespace Loveman
 								}
 							}
 
-							if (entry.Name == "" || entry.Name == "lovec.exe" || (!entry.Name.EndsWith(".dll") && !entry.Name.EndsWith(".exe"))) {
+							if (entry.Name == "" || entry.Name == "lovec.exe" || entry.Name == "lovrc.bat" || (!entry.Name.EndsWith(".dll") && !entry.Name.EndsWith(".exe"))) {
 								continue;
 							}
 
-							if (entry.Name == "love.exe") {
+							if (entry.Name == "love.exe" || entry.Name == "lovr.exe") {
 								loveExePath = Path.Combine(releasePath, entry.FullName);
 							}
 
@@ -385,7 +410,7 @@ namespace Loveman
 				}
 
 				// Append the .love file to the exe
-				var loveFilePath = Path.Combine(projectPath, "Release/Game.love");
+				var loveFilePath = Path.Combine(projectPath, "Release/Game" + GetZipExtension());
 
 				using (var writer = File.OpenWrite(loveExePath)) {
 					writer.Seek(0, SeekOrigin.End);
@@ -453,7 +478,7 @@ namespace Loveman
 				var appPath = Path.Combine(releasePath, "love.app");
 
 				// Put the .love file in the app resources
-				var loveFilePath = Path.Combine(projectPath, "Release/Game.love");
+				var loveFilePath = Path.Combine(projectPath, "Release/Game" + GetZipExtension());
 				var newLovePath = Path.Combine(appPath, "Contents/Resources", Path.ChangeExtension(newAppName, "love"));
 				File.Copy(loveFilePath, newLovePath);
 

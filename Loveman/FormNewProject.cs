@@ -67,9 +67,9 @@ namespace Loveman
 			project.m_author = textProjectAuthor.Text;
 			project.m_bundleIdentifier = textProjectBundleIdentifier.Text;
 			if (radioLove2D.Checked) {
-				project.m_type = ProjectInfo.ProjectType.Love2D;
+				project.m_type = LoveType.Love2D;
 			} else if (radioLovr.Checked) {
-				project.m_type = ProjectInfo.ProjectType.Lovr;
+				project.m_type = LoveType.Lovr;
 			}
 			project.SaveJson();
 

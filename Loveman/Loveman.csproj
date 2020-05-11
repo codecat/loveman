@@ -102,6 +102,7 @@
     <Compile Include="FormSettings.Designer.cs">
       <DependentUpon>FormSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoveType.cs" />
     <Compile Include="LoveVersion.cs" />
     <Compile Include="MoonLogLineInfo.cs" />
     <Compile Include="MoonQueuedItem.cs" />
