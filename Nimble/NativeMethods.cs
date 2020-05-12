@@ -85,7 +85,7 @@ namespace Nimble
       info.cbSize = (uint)Marshal.SizeOf(info);
       info.hwnd = form.Handle;
       info.dwFlags = FLASHW_STOP;
-      info.uCount = 5;
+      info.uCount = 0;
       info.dwTimeout = 0;
       FlashWindowEx(ref info);
     }
