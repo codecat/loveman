@@ -1,4 +1,5 @@
 ﻿using Loveman.Properties;
+using Nimble;
 using Nimble.Controls.FlatControls;
 using Nimble.Interface;
 using System;
@@ -188,8 +189,10 @@ namespace Loveman
 						}
 
 						AddMoonscriptLog(text, subText, relPath, Resources.cancel, line);
+						NativeMethods.FlashWindow(this);
 					} else {
 						AddMoonscriptLog(text, "OK", relPath, Resources.accept);
+						NativeMethods.FlashWindowStop(this);
 					}
 
 					if (listChanges.Items.Count > 100) {
