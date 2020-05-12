@@ -287,7 +287,7 @@ namespace Loveman
 
 		private void UpdateMoonQueueText()
 		{
-			Invoke(new Action(() => {
+			BeginInvoke(new Action(() => {
 				if (m_watchQueue.Count > 0) {
 					groupMoonscript.Title = "Moonscript (" + m_watchQueue.Count + " in queue)";
 				} else {
