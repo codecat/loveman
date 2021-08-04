@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -72,6 +72,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\ConfLua.cs" />
+    <Compile Include="Features\HUMP.cs" />
+    <Compile Include="Features\HUMPFork.cs" />
+    <Compile Include="Features\Knife.cs" />
+    <Compile Include="Features\LeanClass.cs" />
+    <Compile Include="Features\MainLua.cs" />
+    <Compile Include="Features\TinyEcs.cs" />
+    <Compile Include="FormProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProgress.Designer.cs">
+      <DependentUpon>FormProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IFeature.cs" />
+    <Compile Include="Features\VSCodeConfig.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewProject.resx">
       <DependentUpon>FormNewProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProgress.resx">
+      <DependentUpon>FormProgress.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormProject.resx">
       <DependentUpon>FormProject.cs</DependentUpon>
@@ -169,6 +187,8 @@
     <Content Include="Resources\lovr16.png" />
     <Content Include="Resources\lovr32.png" />
     <Content Include="Resources\lovr48.png" />
+    <None Include="Resources\class.lua" />
+    <None Include="Resources\lua16.png" />
     <None Include="Resources\atom16.png" />
     <None Include="Resources\code16.png" />
     <None Include="Resources\merge16.png" />

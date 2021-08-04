@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,7 +25,23 @@ namespace Loveman
 
 			buttonOK.Enabled = (radioLove2D.Enabled || radioLovr.Enabled);
 
+			AddFeature(new Features.MainLua());
+			AddFeature(new Features.ConfLua());
+			AddFeature(new Features.VSCodeConfig());
+			AddFeature(new Features.LeanClass());
+			AddFeature(new Features.HUMP());
+			AddFeature(new Features.HUMPFork());
+			AddFeature(new Features.Knife());
+			AddFeature(new Features.TinyEcs());
+
 			Interface.InterfaceTheme(this);
+		}
+
+		private void AddFeature(IFeature feature)
+		{
+			var fli = listFeatures.Items.Add(feature.GetName());
+			fli.Tag = feature;
+			feature.ConfigureItem(fli);
 		}
 
 		private string GetProperFolderName(string path)
@@ -72,6 +89,52 @@ namespace Loveman
 				project.m_type = LoveType.Lovr;
 			}
 			project.SaveJson();
+
+			var numFeatures = 0;
+			foreach (var item in listFeatures.Items) {
+				if (item.Checked) {
+					numFeatures++;
+				}
+			}
+
+			if (numFeatures > 0) {
+				var progressWindow = new FormProgress();
+				progressWindow.Text = "Creating project " + textProjectName.Text;
+
+				var thr = new Thread(new ThreadStart(() => {
+					progressWindow.WaitUntilCreated();
+
+					var currentFeature = 0;
+					foreach (var item in listFeatures.Items) {
+						if (!item.Checked) {
+							continue;
+						}
+
+						var feature = (item.Tag as IFeature);
+
+						progressWindow.SetStatus(currentFeature / (double)numFeatures, "Applying feature: " + feature.GetName());
+
+						try {
+							feature.ApplyFeature(project);
+						} catch (Exception ex) {
+							Invoke(new Action(() => {
+								MessageBox.Show(this, "Failed to apply feature: " + ex.ToString(), Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+							}));
+						}
+
+						currentFeature++;
+					}
+
+					progressWindow.Finished();
+				}));
+
+				thr.IsBackground = true;
+				thr.Start();
+
+				progressWindow.ShowDialog(this);
+
+				thr.Join();
+			}
 
 			Program.MainForm.ReloadProjects();
 
