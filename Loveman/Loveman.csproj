@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Features\ConfLua.cs" />
+    <Compile Include="Features\Git.cs" />
     <Compile Include="Features\HUMP.cs" />
     <Compile Include="Features\HUMPFork.cs" />
     <Compile Include="Features\Knife.cs" />
@@ -185,6 +186,7 @@
     <Content Include="Moonscript\moonc.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\git16.png" />
     <Content Include="Resources\love48.png" />
     <Content Include="Resources\lovr16.png" />
     <Content Include="Resources\lovr32.png" />

@@ -27,6 +27,7 @@ namespace Loveman
 
 			AddFeature(new Features.MainLua());
 			AddFeature(new Features.ConfLua());
+			AddFeature(new Features.Git());
 			AddFeature(new Features.VSCodeConfig());
 			AddFeature(new Features.LeanClass());
 			AddFeature(new Features.HUMP());
