@@ -77,6 +77,8 @@
     <Compile Include="Features\HUMPFork.cs" />
     <Compile Include="Features\Knife.cs" />
     <Compile Include="Features\LeanClass.cs" />
+    <Compile Include="Features\Lume.cs" />
+    <Compile Include="Features\Lurker.cs" />
     <Compile Include="Features\MainLua.cs" />
     <Compile Include="Features\TinyEcs.cs" />
     <Compile Include="FormProgress.cs">

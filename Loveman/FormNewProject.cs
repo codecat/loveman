@@ -33,6 +33,8 @@ namespace Loveman
 			AddFeature(new Features.HUMPFork());
 			AddFeature(new Features.Knife());
 			AddFeature(new Features.TinyEcs());
+			AddFeature(new Features.Lume());
+			AddFeature(new Features.Lurker());
 
 			Interface.InterfaceTheme(this);
 		}
