@@ -108,7 +108,7 @@
 			this.flatGroupBox2.LeftPadding = 10;
 			this.flatGroupBox2.Location = new System.Drawing.Point(141, 230);
 			this.flatGroupBox2.Name = "flatGroupBox2";
-			this.flatGroupBox2.Size = new System.Drawing.Size(391, 167);
+			this.flatGroupBox2.Size = new System.Drawing.Size(391, 219);
 			this.flatGroupBox2.TabIndex = 18;
 			this.flatGroupBox2.Text = "Features";
 			this.flatGroupBox2.TextPadding = 2;
@@ -142,7 +142,7 @@
 			this.listFeatures.Name = "listFeatures";
 			this.listFeatures.SelectionColor = System.Drawing.Color.LightBlue;
 			this.listFeatures.SelectionTextColor = System.Drawing.Color.Black;
-			this.listFeatures.Size = new System.Drawing.Size(379, 142);
+			this.listFeatures.Size = new System.Drawing.Size(379, 194);
 			this.listFeatures.SubItemIndicator = true;
 			this.listFeatures.TabIndex = 0;
 			this.listFeatures.Text = "flatList1";
@@ -244,7 +244,7 @@
 			this.buttonOK.Image = null;
 			this.buttonOK.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.buttonOK.ImagePadding = 3;
-			this.buttonOK.Location = new System.Drawing.Point(295, 404);
+			this.buttonOK.Location = new System.Drawing.Point(295, 456);
 			this.buttonOK.Margin = new System.Windows.Forms.Padding(4);
 			this.buttonOK.Name = "buttonOK";
 			this.buttonOK.Size = new System.Drawing.Size(115, 28);
@@ -267,7 +267,7 @@
 			this.buttonCancel.Image = null;
 			this.buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.buttonCancel.ImagePadding = 3;
-			this.buttonCancel.Location = new System.Drawing.Point(417, 404);
+			this.buttonCancel.Location = new System.Drawing.Point(417, 456);
 			this.buttonCancel.Margin = new System.Windows.Forms.Padding(4);
 			this.buttonCancel.Name = "buttonCancel";
 			this.buttonCancel.Size = new System.Drawing.Size(115, 28);
@@ -282,7 +282,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(548, 447);
+			this.ClientSize = new System.Drawing.Size(548, 499);
 			this.Controls.Add(this.flatGroupBox2);
 			this.Controls.Add(this.flatGroupBox1);
 			this.Controls.Add(this.labelCreatedPath);
