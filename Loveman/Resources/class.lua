@@ -24,6 +24,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ]]--
 
+-- Source & documentation: https://hump.readthedocs.io/en/latest/class.html
+
 local function include_helper(to, from, seen)
 	if from == nil then
 		return to

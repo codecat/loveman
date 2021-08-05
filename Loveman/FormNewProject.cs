@@ -29,6 +29,7 @@ namespace Loveman
 			AddFeature(new Features.ConfLua());
 			AddFeature(new Features.Git());
 			AddFeature(new Features.VSCodeConfig());
+			AddFeature(new Features.JonClass());
 			AddFeature(new Features.LeanClass());
 			AddFeature(new Features.HUMP());
 			AddFeature(new Features.HUMPFork());

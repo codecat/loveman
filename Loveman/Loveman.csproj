@@ -76,6 +76,7 @@
     <Compile Include="Features\Git.cs" />
     <Compile Include="Features\HUMP.cs" />
     <Compile Include="Features\HUMPFork.cs" />
+    <Compile Include="Features\JonClass.cs" />
     <Compile Include="Features\Knife.cs" />
     <Compile Include="Features\LeanClass.cs" />
     <Compile Include="Features\Lume.cs" />
@@ -192,6 +193,7 @@
     <Content Include="Resources\lovr32.png" />
     <Content Include="Resources\lovr48.png" />
     <None Include="Resources\class.lua" />
+    <None Include="Resources\jonclass.lua" />
     <None Include="Resources\lua16.png" />
     <None Include="Resources\atom16.png" />
     <None Include="Resources\code16.png" />
